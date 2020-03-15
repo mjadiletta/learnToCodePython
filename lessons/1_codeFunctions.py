@@ -66,6 +66,8 @@ checkSolutions['example3'](ex3, randInt(), randInt())
 '''
 Example 4: 
     Code the function: a^(b) = c
+    google search "exponent in python" 
+    Hint: do not use ^
 '''
 def ex4(a, b):
     c = None
@@ -76,6 +78,7 @@ checkSolutions['example4'](ex4, randInt(), randInt())
 '''
 Example 5: 
     Code the function: square_root(a) = c
+    Hint: look at intro above at "operations learned"
 '''
 def ex5(a):
     b = None
@@ -86,6 +89,7 @@ checkSolutions['example5'](ex5, abs(randInt()))
 '''
 Example 6: 
     Code the function: remainder of a/b = c
+    Hint: look at intro above at "operations learned"
 '''
 def ex6(a, b):
     c = None
@@ -96,6 +100,7 @@ checkSolutions['example6'](ex6, randInt(), randInt())
 '''
 Example 7: 
     Code the function: absolute_value a = b
+    Hint: look at intro above at "operations learned"
 '''
 def ex7(a):
     b = None
@@ -107,7 +112,7 @@ checkSolutions['example7'](ex7, randInt())
 Example 8: 
     Code the function: e^a = b
     the e we want is: ln(e) = 1
-    lookup np.exp
+    Hint: look at intro above at "operations learned"
 '''
 def ex8(a):
     b = None

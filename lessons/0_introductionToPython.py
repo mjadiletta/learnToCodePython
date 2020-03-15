@@ -13,6 +13,11 @@ Learning Outcomes:
 Most examples are completed for you.
 There are no correct or incorrect answers in this section.
 Just learn how to print to the console and get comfortable with what is going on in the pyCharm environment.
+
+Note:
+    Python is a syntax langauge where "white space" matters
+    white space is stuff like new lines and tabs.
+    You must use white space correctly to make the code compile.
 """
 
 '''

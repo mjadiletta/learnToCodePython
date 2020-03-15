@@ -22,6 +22,7 @@ from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().conditionalSolutions
 randInt = lambda: np.random.randint(-100, 100)
 
+
 '''
 Example 1: 
     use a conditional if else statement to return 
@@ -49,10 +50,11 @@ def ex2(a, b):
 
 checkSolutions['example2'](ex2, 5, 6)
 
+
 '''
 Example 3: 
     use a conditional if else statement to return 
-    0 if the number if a equals be or the lower of the two numbers
+    0 if the numbers are equal, or return the lower of the two numbers
 '''
 def ex3(a, b):
     if None:
@@ -65,10 +67,11 @@ def ex3(a, b):
 
 checkSolutions['example3'](ex3, randInt(), randInt())
 
+
 '''
 Example 4: 
     use a conditional if else statement to return the larger number between: 
-    a^2 / 5 and b^3 / 3
+    (a^2 / 5) and (b^3 / 3)
 '''
 def ex4(a, b):
     if None:

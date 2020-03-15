@@ -25,7 +25,6 @@ Note: before using a list, you must call the list using copy.deepcopy("list")
 that way you do not alter the original list
 """
 
-
 import numpy as np
 import copy
 from solutions.CheckSolutions import CheckSolutions
@@ -93,8 +92,10 @@ Example 3:
     
     Note 1: list index values start at index 0, not 1. 
     Note 2: the answer to this question based on the given list b is 3
-            as observed from the list definition. Do not return 3, use the
+            as observed from the list definition (line 45). Do not return 3, use the
             correct python syntax for accessing a value of an array by indexing.
+            
+    Hint: search "accessing list index python"
 '''
 def ex3(list_b):
     return None
@@ -109,8 +110,8 @@ Example 4:
     third value and fifth value of list b.
     
     Note 1: list index values start at index 0, not 1. 
-    Note 2: the answer to this question based on the given list b is 3
-            as observed from the list definition. Do not return 3, use the
+    Note 2: the answer to this question based on the given list b is 3+1 = 4
+            as observed from the list definition. Do not return 4, use the
             correct python syntax for accessing a value of an array by indexing.
 '''
 def ex4(list_b):

@@ -11,25 +11,22 @@ A: Python makes coding easier from a syntax perspective but it also
     that are super easy to use!
 
 Q: What are packages in Python?
-A: Packages are an easy way for programmers to use external code repositories to
+A: Packages are an easy way for programmers to use external code repositories
     in their own code. For example, if a user wanted to use a ping_pong package, the
     coder would import ping_pong and call certain methods such as: create_game
-    add_player, hit_ball, etc.
+    add_player, hit_ball, etc. rather than coding the ping_pong class from scratch
 
 Q: What is Numpy?
 A: Numpy is a python package that has fundamental computing functions.
     Basic functionality of numpy includes mathematical formulas,
     multi-dimensional array objects, statistical operations, random simulations
-    and more. For this tutorial we will mostly be using numpys mathematical formulas
-    and array objects. In this example, we will be exploring the array object functions
+    and more. For this tutorial we will mostly be using numpy's mathematical formulas
+    and array objects. In this lesson, we will be exploring the array object functions
     to do the exact functions we used in the last tutorial.
 
 Notes: We have used numpy before. At the beginning of each program, we import numpy as np.
         This means the numpy package can be used as np._something_. Previously we used
         np.random.randint(-100, 100) to generate random integers between -100 and 100.
-
-        In this module we will create arrays using np.zeros( (shape) ), np.ones( (shape) ),
-        np.array([values]) etc.
 
 Learning Outcomes:
 1) Understand what a numpy array is
@@ -46,7 +43,7 @@ with the correct functionality. If completed correctly, the checkSolutions
 will print "Correct Solution" to the terminal.
 
 After the imports, checkSolutions, and randInt, a bunch of arrays are
-predefined. Do not edit these, but understand how the lists are created
+predefined. Do not edit these, but understand how the arrays are created
 
 Note: What's nice about numpy rather than lists is that every time we append or delete
 something from a numpy array, we create a new numpy array. That way we do not need to
@@ -59,6 +56,8 @@ from solutions.CheckSolutions import CheckSolutions
 
 checkSolutions = CheckSolutions().numpySimpleSolutions
 randInt = lambda : np.random.randint(-100, 100)
+
+
 
 # how to make various lists:
 a = np.array(["You", " ", "can", " ", "learn", " ", "numpy!"])
@@ -243,7 +242,7 @@ Learning Objectives:
 5. Using basic numpy operators for matrix multiplication
 '''
 
-data_path = "data/numpy60MeterDashEx.npy"
+data_path = "../data/numpy60MeterDashEx.npy"
 
 '''
 Example 11: 
@@ -264,7 +263,7 @@ Example 12:
     Using the function created in ex11, get the data from data_path
     then return (average_time, most_frequent_time, min_time, max_time)
     
-    the most_frequent_time is the most difficult to find:
+    the most_frequent_time is the most difficult to derive:
     - Hints: 
         average_time -> np.average
         most_frequent_time -> np.bincount(data).argmax() 
@@ -344,7 +343,7 @@ checkSolutions['example15'](ex15, data_path)
 
 '''
 Example 16: 
-    Reshape the data from its current shape so that it has two dimensions of equal size
+    Reshape the data from its current shape so that it has two dimensions of equal size (2, 12)
     np.reshape(data, shape)
 '''
 def ex16(path):
@@ -360,6 +359,8 @@ Example 17:
     Calculate the dot product of the first 12 datapoints with the second 12 datapoints
     np.dot(arr, arr)
     result is a single number - look up how dot product works if you forget
+    
+    return the dot product scalar
 '''
 def ex17(path):
     return None
@@ -372,7 +373,9 @@ checkSolutions['example17'](ex17, data_path)
 Example 18: 
     Calculate the outer product of the first 12 datapoints with the second 12 datapoints
     must use np.outer operator
-    result is a 12x12 array
+    result is a (12x12) array
+    
+    return the 12x12 array
 '''
 def ex18(path):
     return None
@@ -386,6 +389,8 @@ Example 19:
     Calculate the inner product of the first 12 datapoints with the second 12 datapoints
     must use np.multiply or the * operator
     result is a 12x1 array
+    
+    return the inner product vector (12, 1)
 '''
 def ex19(path):
     return None
@@ -397,7 +402,7 @@ checkSolutions['example19'](ex19, data_path)
 '''
 Example 20: 
     Calculate the matrix product between the outer product (12x12) * inner_product (12x1) 
-        scaled by the dot product. 
+        all scaled by the dot product. 
         Calcluate the outer, inner, and dot products using the first 12 with the second 12
         datapoints. Use the functions from ex17, 18, 19. 
 '''

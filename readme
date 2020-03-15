@@ -8,7 +8,7 @@ This is the readme for the python tutorial series!
 In order to begin the tutorial, we need to install a tool for interpreting python.
 We will be using PyCharm, a python Integrated Design Environment (IDE).
 
-Intalling PyCharm:
+Installing PyCharm:
     1. Go to the PyCharm homepage: https://www.jetbrains.com/pycharm/
     2. Press Download - will navigate you to a a Download PyCharm page
     3. Download the Community Edition by pressing the black download button - should take ~15s
@@ -68,7 +68,7 @@ Installing Python
         b. if a blank line appears, then python isn't configured yet and we will need to configure it.
             - That's not to say, it isn't installed. It might not be in your environment variables yet
             - If you think you already installed python, go to "Adding Python to your Environment Variables"
-    4. Since python isn't insalled go to: https://www.python.org/downloads/
+    4. Since python isn't installed go to: https://www.python.org/downloads/
     5. Press the yellow "Download Python 3._._" in the "Download latest version for Windows" section.
     6. Open python.exe
     7. Select Add Python 3.8 to PATH !!!!!!!!!!!---Don't miss this or it'll be so annoying later---!!!!
@@ -86,12 +86,12 @@ Installing Python
 Adding Python to your Environment Variables
     Clearly we messed up somewhere, so there are two options, either try to reinstall python, or find it on your laptop
     and manually add python to your environment variables. This is no simple process... warning...
-    - We most likely missed step 7 of Intalling Python. If you remember selecting this, we might have bigger issues.
+    - We most likely missed step 7 of Installing Python. If you remember selecting this, we might have bigger issues.
         * To double check python isn't installed:
             Close all windows
             Restart your laptop
             Open "Command Prompt"
-            Type: "python --verson"
+            Type: "python --version"
                 If it appears, then you can go back to the PyCharm Interpreter stuff
                 If it doesn't... well lets continue...
     1. Open "File Explorer"

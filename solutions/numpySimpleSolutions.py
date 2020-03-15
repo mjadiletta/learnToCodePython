@@ -75,29 +75,29 @@ class numpySimpleSol:
                 None
             print("Example 11: Incorrect Solution")
         except:
-            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.load("data/numpy60MeterDashEx.npy")):
+            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.load(path)):
                 print("Example 11: Correct Solution")
             else:
                 print("Example 11: Incorrect Solution")
 
 
     def ex12(self, f, path):
-        data = np.load("data/numpy60MeterDashEx.npy")
+        data = np.load(path)
         if f(path) == (np.average(data), np.bincount((data*100).astype(int)).argmax()/100, np.min(data), np.max(data)):
             print("Example 12: Correct Solution")
         else:
             print("Example 12: Incorrect Solution")
 
     def ex13(self, f, path):
-        data = np.load("data/numpy60MeterDashEx.npy")[0:12]
+        data = np.load(path)[0:12]
         if f(path) == (np.average(data), np.bincount((data * 100).astype(int)).argmax() / 100, np.min(data), np.max(data)):
             print("Example 13: Correct Solution")
         else:
             print("Example 13: Incorrect Solution")
 
     def ex14(self, f, path):
-        first_12 = np.load("data/numpy60MeterDashEx.npy")[0:12]
-        second_12 = np.load("data/numpy60MeterDashEx.npy")[12:]
+        first_12 = np.load(path)[0:12]
+        second_12 = np.load(path)[12:]
         cost_1 = np.average(first_12) * 12 + np.min(first_12) * 6 + np.max(first_12) * 3
         cost_2 = np.average(second_12) * 12 + np.min(second_12) * 6 + np.max(second_12) * 3
         if (cost_1 < cost_2):
@@ -116,7 +116,7 @@ class numpySimpleSol:
 
 
     def ex15(self, f, path):
-        if f(path) == np.shape(np.load("data/numpy60MeterDashEx.npy")):
+        if f(path) == np.shape(np.load(path)):
             print("Example 15: Correct Solution")
         else:
             print("Example 15: Incorrect Solution")
@@ -127,13 +127,13 @@ class numpySimpleSol:
                 None
             print("Example 16: Incorrect Solution")
         except:
-            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.reshape(np.load("data/numpy60MeterDashEx.npy"), [2, 12])):
+            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.reshape(np.load(path), [2, 12])):
                 print("Example 16: Correct Solution")
             else:
                 print("Example 16: Incorrect Solution")
 
     def ex17(self, f, path):
-        if f(path) == np.dot(np.load("data/numpy60MeterDashEx.npy")[0:12], np.load("data/numpy60MeterDashEx.npy")[12:]):
+        if f(path) == np.dot(np.load(path)[0:12], np.load(path)[12:]):
             print("Example 17: Correct Solution")
         else:
             print("Example 17: Incorrect Solution")
@@ -144,7 +144,7 @@ class numpySimpleSol:
                 None
             print("Example 18: Incorrect Solution")
         except:
-            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.outer(np.load("data/numpy60MeterDashEx.npy")[0:12], np.load("data/numpy60MeterDashEx.npy")[12:])):
+            if np.ndarray.tolist(f(path)) == np.ndarray.tolist(np.outer(np.load(path)[0:12], np.load(path)[12:])):
                 print("Example 18: Correct Solution")
             else:
                 print("Example 18: Incorrect Solution")
@@ -156,8 +156,8 @@ class numpySimpleSol:
             print("Example 19: Incorrect Solution")
         except:
             if np.ndarray.tolist(f(path)) == np.ndarray.tolist(
-                    np.multiply(np.load("data/numpy60MeterDashEx.npy")[0:12],
-                                np.load("data/numpy60MeterDashEx.npy")[12:])):
+                    np.multiply(np.load(path)[0:12],
+                                np.load(path)[12:])):
                 print("Example 19: Correct Solution")
             else:
                 print("Example 19: Incorrect Solution")
@@ -169,11 +169,11 @@ class numpySimpleSol:
             print("Example 20: Incorrect Solution")
         except:
             if np.ndarray.tolist(f(path)) == np.ndarray.tolist(
-                    np.dot(np.outer(np.load("data/numpy60MeterDashEx.npy")[0:12],
-                                    np.load("data/numpy60MeterDashEx.npy")[12:]),
-                           np.multiply(np.load("data/numpy60MeterDashEx.npy")[0:12],
-                                       np.load("data/numpy60MeterDashEx.npy")[12:])) *
-                    np.dot(np.load("data/numpy60MeterDashEx.npy")[0:12], np.load("data/numpy60MeterDashEx.npy")[12:])):
+                    np.dot(np.outer(np.load(path)[0:12],
+                                    np.load(path)[12:]),
+                           np.multiply(np.load(path)[0:12],
+                                       np.load(path)[12:])) *
+                    np.dot(np.load(path)[0:12], np.load(path)[12:])):
                 print("Example 20: Correct Solution")
             else:
                 print("Example 20: Incorrect Solution")

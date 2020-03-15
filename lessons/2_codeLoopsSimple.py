@@ -27,7 +27,7 @@ randInt = lambda : np.random.randint(-100, 100)
 
 '''
 Example 1: 
-    Code a loop that creates the string "0 1 2 3 4 5 "
+    Code a for loop that creates the string "0 1 2 3 4 5 "
     Then return the string.
 '''
 def ex1():
@@ -41,7 +41,7 @@ checkSolutions['example1'](ex1)
 
 '''
 Example 2: 
-    Code a loop that creates the string "012345"
+    Code a for loop that creates the string "012345"
     Then return the string.
 '''
 def ex2():
@@ -55,7 +55,7 @@ checkSolutions['example2'](ex2)
 
 '''
 Example 3: 
-    Code a loop that creates the string "6789"
+    Code a for loop that creates the string "6789"
     Then return the string.
 '''
 def ex3():
@@ -69,7 +69,7 @@ checkSolutions['example3'](ex3)
 
 '''
 Example 4: 
-    Code a loop that finds the sum of 0 - 6
+    Code a for loop that finds the sum of 0 - 6
     Then return the sum.
 '''
 def ex4():
@@ -83,7 +83,7 @@ checkSolutions['example4'](ex4)
 
 '''
 Example 5: 
-    Code a loop that finds the sum of the numbers between two integers
+    Code a for loop that finds the sum of the numbers between two integers
         Then return the sum.
     ex: ex5(20, 25) = 20 + 21 + 22 + 23 + 24
 '''
@@ -103,7 +103,7 @@ repeat examples 1 - 5 but instead of using a for loop, use a while loop
 
 '''
 Example 6: 
-    Code a loop that creates the string "0 1 2 3 4 5 "
+    Code a while loop that creates the string "0 1 2 3 4 5 "
     Then return the string.
 '''
 def ex6():
@@ -119,7 +119,7 @@ checkSolutions['example6'](ex6)
 
 '''
 Example 7: 
-    Code a loop that creates the string "012345"
+    Code a while loop that creates the string "012345"
     Then return the string.
 '''
 def ex7():
@@ -134,7 +134,7 @@ checkSolutions['example7'](ex7)
 
 '''
 Example 8: 
-    Code a loop that creates the string "6789"
+    Code a while loop that creates the string "6789"
     Then return the string.
 '''
 def ex8():
@@ -149,7 +149,7 @@ checkSolutions['example8'](ex8)
 
 '''
 Example 9: 
-    Code a loop that finds the sum of 0 - 5
+    Code a while loop that finds the sum of 0 - 5
     Then return the sum.
 '''
 def ex9():
@@ -164,7 +164,7 @@ checkSolutions['example9'](ex9)
 
 '''
 Example 10: 
-    Code a loop that finds the sum of the numbers between two integers
+    Code a while loop that finds the sum of the numbers between two integers
         Then return the sum.
         assume input a is always  less than input b
     ex: ex5(20, 25) = 20 + 21 + 22 + 23 + 24

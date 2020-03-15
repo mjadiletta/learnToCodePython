@@ -3,7 +3,7 @@ Practice Group 7: Introduction to Matplotlib
 Created: 3/14/2020
 
 In this assignment we will learn to use the python package matplotlib.
-This package is incredibly useful for visualizations. Simple matplotlib
+This package is incredibly useful for visualizations. Matplotlib
 functionality includes building bar charts, scatter plots, line graphs,
 and much more.
 
@@ -19,7 +19,7 @@ Learning Outcomes:
 Online Documentation: https://matplotlib.org/
 
 Notes: Looking at our imports, notice we are importing matplotlib.pyplot as plt. This
-is similar to how we used numpy, were instead of having to write numpy.average()
+is similar to how we used numpy, where instead of having to write numpy.average()
 we could just write np.average. For matplotlib, rather than writing matplotlib.pyplot.
 evertime we need something from that package, we can use plt.
 
@@ -27,7 +27,6 @@ Example 1 is completed as a template.
 For each of the following examples, replace blank lines
 with the correct functionality. If completed correctly, the checkSolutions
 will print "Correct Solution" to the terminal.
-
 
 
 It is not possible to check the exact configuration of your graph so compare
@@ -41,7 +40,6 @@ import matplotlib.pyplot as plt
 from solutions.CheckSolutions import CheckSolutions
 
 checkSolutions = CheckSolutions().matplotlibIntro
-randInt = lambda : np.random.randint(-100, 100)
 
 data_path = "../data/numpy60MeterDashEx.npy"
 
@@ -64,11 +62,11 @@ def ex1(path):
           To do this we use np.arange(num) which produces an ordered numpy array.
           Thus the result we are looking for:
               x = [   0,    1,    2,    3, ...   23]
-              y = [7,13, 7.09, 7.21, 7.28, ... 7.14]
+              y = [7.13, 7.09, 7.21, 7.28, ... 7.14]
               plt.plot(x, y)
     '''
     data = np.load(path)
-    number_data_points = np.shape(data)[0]
+    number_data_points = np.shape(data)[0]  # 24
     x_coordinates = np.arange(number_data_points) # 0 1 2 3 ... 23
     y_coordinates = data
 
@@ -79,7 +77,6 @@ def ex1(path):
     ax3 = axes[2]
 
     # Subplot 1--------------------------------------------------------------------------------
-    # ax.plot(x_points, y_points, --options--)
     ax1.plot(x_coordinates, y_coordinates)
     ax1.set(xlabel='race', ylabel='time (s)', title='60m Dash Race Progression')
     ax1.grid() # add a grid to the graph if you want
@@ -96,7 +93,7 @@ def ex1(path):
     # Comment out this line after you complete each assignment.
     # That way it stops popping up while you are debugging other examples.
     figure.tight_layout(pad=1.5)
-    #plt.show()
+    plt.show()
     plt.close()
     return (x_coordinates, y_coordinates)
 
@@ -134,7 +131,7 @@ def ex2(path):
     ax2.set(xlabel=None, ylabel=None, title=None)
 
     figure.tight_layout(pad=1.5)  # so there is spacing between the subplots
-    plt.show()
+    #plt.show()
     plt.close()
     return x_coordinates, y_coordinates, n
 
