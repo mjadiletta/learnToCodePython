@@ -48,6 +48,8 @@ Part 1:
         x: the input x value
         B: the steepness of the sigmoid
         alpha: the shift in the x direction
+        
+    If you want to really understand this function, plug it into desmos online: https://www.desmos.com/
     return: 1 / (1 + e^(-B(x-alpha))
 '''
 def sigmoid(x, B, alpha):
