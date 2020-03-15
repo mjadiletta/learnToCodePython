@@ -1,0 +1,122 @@
+###################################################
+readme
+created: 3/14/202
+
+This is the readme for the python tutorial series!
+
+In order to begin the tutorial, we need to install a tool for interpreting python.
+We will be using PyCharm, a python Integrated Design Environment (IDE).
+
+Intalling PyCharm:
+    1. Go to the PyCharm homepage: https://www.jetbrains.com/pycharm/
+    2. Press Download - will navigate you to a a Download PyCharm page
+    3. Download the Community Edition by pressing the black download button - should take ~15s
+    4. Open the .exe file
+    5. Choose "yes" if the option appears
+    6. Next -> Next -> Choose to create a desktop shortcut by selecting "64-bit launcher" -> Next -> Install - should take ~30s
+    7. Finish
+
+After PyCharm is installed, let's open it!
+    Open PyCharm by going to your desktop and clicking on the new icon called "PyCharm"
+    If you can't find it, search for it on your laptop using the windows search tool
+
+    1. Do not import settings
+    2. Confirm their Privacy Policy
+    3. Continue
+    4. Don't send
+    5. Skip Remaining and Set Defaults (bottom left)
+    6. Create New Project
+        a. Select the folder icon on the far right of the "Location:" bar
+        b. Navigate to this lecture series main directory and select
+    7. Click on Project Interpreter: New Virtualenv environment
+        a. Make sure: "New environment using Virtualenv" is selected
+        b. If there is a python interpreter that we can use, use it.
+            -If Base Interpreter is "<No Interpreter>" and there is nothing in the dropdown
+                -we will need to install python - Go go Installing Python below, then come back to this.
+
+                WE BACK!
+
+                - Hopefully we installed Python properly and know where it is installed
+                    - if we don't know where it is installed open "Command Prompt" and type "where python"
+                - click the "..." afer "Base interpreter"
+                - click the eye icon in the menu bar to show hidden directories.
+                    * it's the last icon inline with "Hide path"
+                - navigate to the python.exe listed from "where python"
+                    * Most likely in "C:\Users\username\AppData\Local\Programs\Python\Python3_-__\python.exe"
+            -Select Create!
+    8. Close "Tip of the Day"
+    9. Navigate to the left column window under "Project" select the highlighted folder.
+    10. Select "lessons"
+    11. Select "0_introductionToPython.py"
+    12. In the menu bar, select "File" -> "Settings" -> "Project: learnToCode" -> "Project Interpreter"
+        - This is the Project Interpreter where we can add python packages.
+        - For this tutorial we need: numpy, matplotlib, and potentially more. We will install these for now
+    13. Press the "+" button in the right column inline with "Package    Version    Latest Version" to open a new window.
+    14. Search "numpy" in the search bar and press "Install Package".
+        - If you get an error after doing everything before this... text me...
+    15. Search "matplotlib" in the search bar and press "Install Package".
+    16. You should be all set now! Read through lecture 0 carefully and begin your python journey!
+
+Installing Python
+    1. Check to see if your laptop already has python installed - just in case
+    2. Press "start" and type "Command Prompt"
+    3. In the Command Prompt type: "python --version"
+        a. if "Python 3._._ " appears, then python is already installed
+            - To find the location of it's installation which you can use in your PyCharm interpreter type: "where python"
+            - Then go back to PyCharm and click the ... after "Base interpreter" and navigate to the path you found and click on python.exe
+        b. if a blank line appears, then python isn't configured yet and we will need to configure it.
+            - That's not to say, it isn't installed. It might not be in your environment variables yet
+            - If you think you already installed python, go to "Adding Python to your Environment Variables"
+    4. Since python isn't insalled go to: https://www.python.org/downloads/
+    5. Press the yellow "Download Python 3._._" in the "Download latest version for Windows" section.
+    6. Open python.exe
+    7. Select Add Python 3.8 to PATH !!!!!!!!!!!---Don't miss this or it'll be so annoying later---!!!!
+    8. Press the blue "Install Now"
+    9. Select "Yes" - should be ~1 minute
+    10. Close
+    11. Close the old "Command Prompt" and open a new one
+    12. Type "python --version"
+        a. "python 3.8.2" should now appear!
+        b. If it doesn't, then python isn't installed correctly and it's not in your PATH.
+           Go to Adding Python to your Environment Variables.
+    13. Type "where python" and use this path for your python interpreter in PyCharm.
+
+
+Adding Python to your Environment Variables
+    Clearly we messed up somewhere, so there are two options, either try to reinstall python, or find it on your laptop
+    and manually add python to your environment variables. This is no simple process... warning...
+    - We most likely missed step 7 of Intalling Python. If you remember selecting this, we might have bigger issues.
+        * To double check python isn't installed:
+            Close all windows
+            Restart your laptop
+            Open "Command Prompt"
+            Type: "python --verson"
+                If it appears, then you can go back to the PyCharm Interpreter stuff
+                If it doesn't... well lets continue...
+    1. Open "File Explorer"
+    2. Go to Window(C:)\Users\your username\
+    3. Click "View" in the Menu bar
+    4. In the "Show/hide" section, select "Hidden items"
+    5. Select hidden folder "AppData"
+    6. Search python.exe
+    7. A path will appear eventually. Write down this path in a document somewhere.
+        - should look something like this: "C:\Users\___\AppData\Local\Programs\Python\Python3_\python.exe"
+    8. Press Start and type "env" and select "Edit system environment variables"
+    9. Press the "Environment Variables..." button
+    10. Here we see two sections: "User variables for ___" and "System variables"
+        - Each section should have a "Path" variable. Do the following for both
+            - Double click on "Path"
+            - Select "New"
+            - Paste the path to python you wrote down earlier
+            - press "OK"
+        - press "OK"
+    11. Press "OK"
+    12. Exit out of all "Command Prompts"
+    13. Open a new "Command Prompt"
+    14. Type "python --version"
+        - "python 3.8.2" should now appear!
+        - If it doesn't, then text me! I'll have to really take a look
+    15. Type "where python"
+        - The path that appears should be the path you put in the "User" and "System" environment variables
+    16. Go back to the PyCharm interpreter section and use this path for the "Base interpreter"
+

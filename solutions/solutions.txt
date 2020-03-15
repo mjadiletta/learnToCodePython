@@ -1,0 +1,173 @@
+############################################################
+7_matplotlibIntroduction Solutions:
+
+def ex2(path):
+    data = np.load(path)
+    number_data_points = np.shape(data)[0]
+    x_coordinates = np.arange(number_data_points)  # 0 1 2 3 ... 23
+    y_coordinates = data
+
+    # initialize the figure with 3 rows and 1 column of subplots. Start with subplot 1
+    figure, axes = plt.subplots(figsize=(10, 5), nrows=1, ncols=2)
+    ax1 = axes[0]
+    ax2 = axes[1]
+
+    # Subplot 1--------------------------------------------------------------------------------
+    # ax.plot(x_points, y_points, --options--)
+    ax1.plot(x_coordinates, y_coordinates, color='skyblue')
+    ax1.set(xlabel='race', ylabel='time (s)', title='60m Dash Race Progression')
+    ax1.grid()  # add a grid to the graph if you want
+
+    # Subplot 2--------------------------------------------------------------------------------
+    n, b, p, = ax2.hist(data, bins=10, color='skyblue')
+    ax2.set(xlabel='race times (s)', ylabel='frequency of each time', title='60m Dash Histogram')
+
+    figure.tight_layout(pad=1.5)
+    #plt.show()
+    plt.close()
+    return x_coordinates, y_coordinates, n
+
+checkSolutions['example2'](ex2, data_path)
+
+
+
+def ex3(path):
+    data = np.load(path)
+    number_data_points = np.shape(data)[0]
+    x_coordinates_top = np.arange(number_data_points/2)  # 0 1 2 3 ... 11
+    y_coordinates_top = data[0:12]
+    x_coordinates_bottom = np.arange(number_data_points/2)
+    y_coordinates_bottom = data[12:]
+
+    # initialize the figure with 3 rows and 1 column of subplots. Start with subplot 1
+    figure, axes = plt.subplots(figsize=(8, 8), nrows=2, ncols=2)
+    ax1 = axes[0][0]
+    ax2 = axes[0][1]
+    ax3 = axes[1][0]
+    ax4 = axes[1][1]
+
+    # Subplot 1--------------------------------------------------------------------------------
+    # ax.plot(x_points, y_points, --options--)
+    ax1.plot(x_coordinates_top, y_coordinates_top, color='skyblue')
+    ax1.set(xlabel='race', ylabel='time (s)', title='60m Dash Race Progression first 12')
+    ax1.grid()  # add a grid to the graph if you want
+
+    # Subplot 2--------------------------------------------------------------------------------
+    n_top, b, p, = ax2.hist(data[0:12], bins=6, color='skyblue')
+    ax2.set(xlabel='race times (s)', ylabel='frequency of each time', title='60m Dash Histogram first 12')
+
+    # Subplot 3--------------------------------------------------------------------------------
+    # ax.plot(x_points, y_points, --options--)
+    ax3.plot(x_coordinates_bottom, y_coordinates_bottom, color='skyblue')
+    ax3.set(xlabel='race', ylabel='time (s)', title='60m Dash Race Progression second 12')
+    ax3.grid()  # add a grid to the graph if you want
+
+    # Subplot 4--------------------------------------------------------------------------------
+    n_bottom, b, p, = ax4.hist(data[12:], bins=6, color='skyblue')
+    ax4.set(xlabel='race times (s)', ylabel='frequency of each time', title='60m Dash Histogram second 12')
+
+    figure.tight_layout(pad=1.5)
+    #plt.show()
+    plt.close()
+    return (x_coordinates_top, y_coordinates_top, n_top, x_coordinates_bottom, y_coordinates_bottom, n_bottom)
+
+checkSolutions['example3'](ex3, data_path)
+
+
+
+def ex4(path):
+    data = np.load(path)
+    number_data_points = np.shape(data)[0]
+    x_coordinates_red = np.arange(number_data_points/2)  # 0 1 2 3 ... 11
+    y_coordinates_red = data[0:12]
+    x_coordinates_blue = np.arange(number_data_points/2)
+    y_coordinates_blue = data[12:]
+
+    # initialize the figure with 3 rows and 1 column of subplots. Start with subplot 1
+    figure, axes = plt.subplots(figsize=(10, 5), nrows=1, ncols=2)
+    ax1 = axes[0]
+    ax2 = axes[1]
+
+    # Subplot 1--------------------------------------------------------------------------------
+    # ax.plot(x_points, y_points, --options--)
+    ax1.plot(x_coordinates_red, y_coordinates_red, color='red', label='first 12')
+    ax1.plot(x_coordinates_blue, y_coordinates_blue, color='blue', label='second 12')
+    ax1.legend()
+    ax1.set(xlabel='race', ylabel='time (s)', title='60m Dash Race Progression')
+    ax1.grid()  # add a grid to the graph if you want
+
+    # Subplot 2--------------------------------------------------------------------------------
+    n_red, b, p, = ax2.hist(data[0:12], bins=5, color='red', alpha=.3, label='first 12')
+    n_blue, b, p, = ax2.hist(data[12:], bins=5, color='blue', alpha=.3, label='second 12')
+    ax2.legend()
+    ax2.set(xlabel='race times (s)', ylabel='frequency of each time', title='60m Dash Histogram')
+
+
+    figure.tight_layout(pad=1.5)
+    #plt.show()
+    plt.close()
+    return (x_coordinates_red, y_coordinates_red, n_red, x_coordinates_blue, y_coordinates_blue, n_blue)
+
+checkSolutions['example4'](ex4, data_path)
+
+############################################################
+
+cumulativeProject2
+
+def sigmoid(x, B, alpha):
+    return 1 / (1 + np.exp(-B*(x-alpha)))
+
+checkSolutions['project2p1'](sigmoid, 2, 10, 1)
+
+
+def test_sigmoid(sigmoid, start, end, step_size, B, alpha):
+    list_x = []
+    list_y = []
+    for i in np.arange(start, end, step_size):
+        list_x.append(i)
+        list_y.append(sigmoid(i, B, alpha))
+    plt.plot(list_x, list_y)
+    #plt.show()
+    plt.close()
+    return list_x, list_y
+
+checkSolutions['project2p2'](test_sigmoid, sigmoid, start=-5, end=5, step_size=.01, B=3, alpha=1)
+
+
+
+def bandpass_filter(B, alpha1, alpha2):
+    return lambda x: sigmoid(x, B, alpha1) - sigmoid(x, B, alpha2)
+bpf = bandpass_filter(10, 2, 6)  # instantiation of a bandpass_filter
+
+def createXY_bpf(bpf, start, end, step_size):
+    list_x = []
+    list_y = []
+    for i in np.arange(start, end, step_size):
+        list_x.append(i)
+        list_y.append(bpf(i))
+    return list_x, list_y
+
+checkSolutions['project2p3a'](createXY_bpf, bpf, -5, 10, .01)
+
+def sweepCutoff(b_vals, alpha1, alpha2, start, end, step_size):
+    all_XY = []
+    figure, axes = plt.subplots(figsize=(10, 2), nrows=1, ncols=len(b_vals))
+    for i, b in enumerate(b_vals):
+        bpf = bandpass_filter(b, alpha1, alpha2)
+        x, y = createXY_bpf(bpf, start, end, step_size)
+        axes[i].plot(x, y)
+        all_XY.append((x, y))
+    figure.tight_layout(pad=.5)
+    #plt.savefig("../solutions/8_cumulativeProject2SolutionsImages/sweepCutoffSolution.png")
+    plt.show()
+    plt.close()
+
+    return all_XY
+
+b_vals = [.5, 1, 5, 10, 20]
+checkSolutions['project2p3b'](sweepCutoff, b_vals, 2, 6, -10, 15, .01)
+
+
+############################################################
+
+
