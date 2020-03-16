@@ -41,6 +41,7 @@ checkSolutions['example1'](ex1, 4, 5)
 # randInt generates random # between -100 to 100 - good for testing
 checkSolutions['example1'](ex1, randInt(), randInt())
 
+
 '''
 Example 2: 
     Code the function: a * b = c
@@ -51,6 +52,7 @@ def ex2(a, b):
     c = None
     return c
 checkSolutions['example2'](ex2, randInt(), randInt())
+
 
 
 '''
