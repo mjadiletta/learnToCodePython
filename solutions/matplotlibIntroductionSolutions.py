@@ -3,6 +3,13 @@ import copy as cp
 import matplotlib.pyplot as plt
 
 class matplotlibIntroductionSol:
+    def __init__(self):
+        self.matplotlibIntro = {}
+        self.matplotlibIntro['example1'] = self.ex1
+        self.matplotlibIntro['example2'] = self.ex2
+        self.matplotlibIntro['example3'] = self.ex3
+        self.matplotlibIntro['example4'] = self.ex4
+
     def ex1(self, f, path):
         out = f(path)
         try:

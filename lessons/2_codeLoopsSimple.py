@@ -102,7 +102,7 @@ repeat examples 1 - 5 but instead of using a for loop, use a while loop
 
 
 '''
-Example 6: 
+Example 6: Completed as an example :)
     Code a while loop that creates the string "0 1 2 3 4 5 "
     Then return the string.
 '''

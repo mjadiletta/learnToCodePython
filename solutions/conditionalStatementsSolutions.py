@@ -1,6 +1,13 @@
 import numpy as np
 
 class conditionalStatementsSolutions:
+    def __init__(self):
+        self.conditionalSolutions = {}
+        self.conditionalSolutions['example1'] = self.ex1
+        self.conditionalSolutions['example2'] = self.ex2
+        self.conditionalSolutions['example3'] = self.ex3
+        self.conditionalSolutions['example4'] = self.ex4
+
     def ex1(self, f, a, b):
         if f(a, b) == max([a,b]):
             print("Example 1: Correct Solution")

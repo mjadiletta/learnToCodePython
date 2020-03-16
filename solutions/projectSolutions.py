@@ -2,6 +2,14 @@ import numpy as np
 import copy
 
 class projectSolutions:
+    def __init__(self):
+        self.projectSolutions = {}
+        self.projectSolutions['project1'] = self.proj1
+        self.projectSolutions['project2p1'] = self.proj2p1
+        self.projectSolutions['project2p2'] = self.proj2p2
+        self.projectSolutions['project2p3a'] = self.proj2p3a
+        self.projectSolutions['project2p3b'] = self.proj2p3b
+
     def proj1(self, f1, f2, input_val, terminal_val):
         num_loops = 0
         iv = copy.deepcopy(input_val)

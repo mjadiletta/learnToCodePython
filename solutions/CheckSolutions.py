@@ -5,86 +5,42 @@ from solutions.listSimpleSolutions import listSimpleSol
 from solutions.numpySimpleSolutions import numpySimpleSol
 from solutions.matplotlibIntroductionSolutions import matplotlibIntroductionSol
 from solutions.dictionarySolutions import dictionarySol
+from solutions.listsComplexSolutions import listComplexSolutions
+from solutions.numpyComplexSolutions import numpyComplexSolutions
+
 from solutions.projectSolutions import projectSolutions
 
 
 class CheckSolutions:
     def __init__(self):
+        # lecture 1
         self.functionSolutions = codeFunctionsSolutions().functionSolutions
 
-        self.loopSolutions = {}
-        self.loopSolutions['example1'] = loopSimpleSolutions().ex1
-        self.loopSolutions['example2'] = loopSimpleSolutions().ex2
-        self.loopSolutions['example3'] = loopSimpleSolutions().ex3
-        self.loopSolutions['example4'] = loopSimpleSolutions().ex4
-        self.loopSolutions['example5'] = loopSimpleSolutions().ex5
-        self.loopSolutions['example6'] = loopSimpleSolutions().ex6
-        self.loopSolutions['example7'] = loopSimpleSolutions().ex7
-        self.loopSolutions['example8'] = loopSimpleSolutions().ex8
-        self.loopSolutions['example9'] = loopSimpleSolutions().ex9
-        self.loopSolutions['example10'] = loopSimpleSolutions().ex10
-        self.loopSolutions['example11'] = loopSimpleSolutions().ex11
+        # lecture 2
+        self.loopSolutions = loopSimpleSolutions().loopSolutions
 
-        self.conditionalSolutions = {}
-        self.conditionalSolutions['example1'] = conditionalStatementsSolutions().ex1
-        self.conditionalSolutions['example2'] = conditionalStatementsSolutions().ex2
-        self.conditionalSolutions['example3'] = conditionalStatementsSolutions().ex3
-        self.conditionalSolutions['example4'] = conditionalStatementsSolutions().ex4
+        # lecture 3
+        self.conditionalSolutions = conditionalStatementsSolutions().conditionalSolutions
 
-        self.listSimpleSolutions = {}
-        self.listSimpleSolutions['example1'] = listSimpleSol().ex1
-        self.listSimpleSolutions['example2'] = listSimpleSol().ex2
-        self.listSimpleSolutions['example3'] = listSimpleSol().ex3
-        self.listSimpleSolutions['example4'] = listSimpleSol().ex4
-        self.listSimpleSolutions['example5'] = listSimpleSol().ex5
-        self.listSimpleSolutions['example6'] = listSimpleSol().ex6
-        self.listSimpleSolutions['example7'] = listSimpleSol().ex7
-        self.listSimpleSolutions['example8'] = listSimpleSol().ex8
-        self.listSimpleSolutions['example9'] = listSimpleSol().ex9
-        self.listSimpleSolutions['example10'] = listSimpleSol().ex10
+        # lecture 5
+        self.listSimpleSolutions = listSimpleSol().listSimpleSolutions
 
-        self.numpySimpleSolutions = {}
-        self.numpySimpleSolutions['example1'] = numpySimpleSol().ex1
-        self.numpySimpleSolutions['example2'] = numpySimpleSol().ex2
-        self.numpySimpleSolutions['example3'] = numpySimpleSol().ex3
-        self.numpySimpleSolutions['example4'] = numpySimpleSol().ex4
-        self.numpySimpleSolutions['example5'] = numpySimpleSol().ex5
-        self.numpySimpleSolutions['example6'] = numpySimpleSol().ex6
-        self.numpySimpleSolutions['example7'] = numpySimpleSol().ex7
-        self.numpySimpleSolutions['example8'] = numpySimpleSol().ex8
-        self.numpySimpleSolutions['example9'] = numpySimpleSol().ex9
-        self.numpySimpleSolutions['example10'] = numpySimpleSol().ex10
-        self.numpySimpleSolutions['example11'] = numpySimpleSol().ex11
-        self.numpySimpleSolutions['example12'] = numpySimpleSol().ex12
-        self.numpySimpleSolutions['example13'] = numpySimpleSol().ex13
-        self.numpySimpleSolutions['example14'] = numpySimpleSol().ex14
-        self.numpySimpleSolutions['example15'] = numpySimpleSol().ex15
-        self.numpySimpleSolutions['example16'] = numpySimpleSol().ex16
-        self.numpySimpleSolutions['example17'] = numpySimpleSol().ex17
-        self.numpySimpleSolutions['example18'] = numpySimpleSol().ex18
-        self.numpySimpleSolutions['example19'] = numpySimpleSol().ex19
-        self.numpySimpleSolutions['example20'] = numpySimpleSol().ex20
+        # lecture 6
+        self.numpySimpleSolutions = numpySimpleSol().numpySimpleSolutions
 
-        self.matplotlibIntro = {}
-        self.matplotlibIntro['example1'] = matplotlibIntroductionSol().ex1
-        self.matplotlibIntro['example2'] = matplotlibIntroductionSol().ex2
-        self.matplotlibIntro['example3'] = matplotlibIntroductionSol().ex3
-        self.matplotlibIntro['example4'] = matplotlibIntroductionSol().ex4
+        # lecture 7
+        self.matplotlibIntro = matplotlibIntroductionSol().matplotlibIntro
 
-        self.dictionarySolutions = {}
-        self.dictionarySolutions['example1'] = dictionarySol().ex1
-        self.dictionarySolutions['example2'] = dictionarySol().ex2
-        self.dictionarySolutions['example3'] = dictionarySol().ex3
-        self.dictionarySolutions['example4'] = dictionarySol().ex4
-        self.dictionarySolutions['example5'] = dictionarySol().ex5
-        self.dictionarySolutions['example6'] = dictionarySol().ex6
-        self.dictionarySolutions['example7'] = dictionarySol().ex7
-        self.dictionarySolutions['example8'] = dictionarySol().ex8
+        # lecture 9
+        self.dictionarySolutions = dictionarySol().dictionarySolutions
 
-        self.projectSolutions = {}
-        self.projectSolutions['project1'] = projectSolutions().proj1
-        self.projectSolutions['project2p1'] = projectSolutions().proj2p1
-        self.projectSolutions['project2p2'] = projectSolutions().proj2p2
-        self.projectSolutions['project2p3a'] = projectSolutions().proj2p3a
-        self.projectSolutions['project2p3b'] = projectSolutions().proj2p3b
+        # lecture 10
+        self.listComplexSolutions = listComplexSolutions().listComplexSol
+
+        # lecture 11
+        self.numpyComplexSolutions = numpyComplexSolutions().numpyComplexSol
+
+        # 4, 8, 12
+        self.projectSolutions = projectSolutions().projectSolutions
+
 

@@ -1,6 +1,20 @@
 import numpy as np
 
 class loopSimpleSolutions:
+    def __init__(self):
+        self.loopSolutions = {}
+        self.loopSolutions['example1'] = self.ex1
+        self.loopSolutions['example2'] = self.ex2
+        self.loopSolutions['example3'] = self.ex3
+        self.loopSolutions['example4'] = self.ex4
+        self.loopSolutions['example5'] = self.ex5
+        self.loopSolutions['example6'] = self.ex6
+        self.loopSolutions['example7'] = self.ex7
+        self.loopSolutions['example8'] = self.ex8
+        self.loopSolutions['example9'] = self.ex9
+        self.loopSolutions['example10'] = self.ex10
+        self.loopSolutions['example11'] = self.ex11
+
     def ex1(self, f):
         if f() == "0 1 2 3 4 5 ":
             print("Example 1: Correct Solution")

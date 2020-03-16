@@ -2,6 +2,19 @@ import numpy as np
 import copy as cp
 
 class listSimpleSol:
+    def __init__(self):
+        self.listSimpleSolutions = {}
+        self.listSimpleSolutions['example1'] = self.ex1
+        self.listSimpleSolutions['example2'] = self.ex2
+        self.listSimpleSolutions['example3'] = self.ex3
+        self.listSimpleSolutions['example4'] = self.ex4
+        self.listSimpleSolutions['example5'] = self.ex5
+        self.listSimpleSolutions['example6'] = self.ex6
+        self.listSimpleSolutions['example7'] = self.ex7
+        self.listSimpleSolutions['example8'] = self.ex8
+        self.listSimpleSolutions['example9'] = self.ex9
+        self.listSimpleSolutions['example10'] = self.ex10
+
     def ex1(self, f, list):
         if f(list) == "You can learn python!":
             print("Example 1: Correct Solution")

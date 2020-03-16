@@ -2,6 +2,17 @@ import numpy as np
 import copy as cp
 
 class dictionarySol:
+    def __init__(self):
+        self.dictionarySolutions = {}
+        self.dictionarySolutions['example1'] = self.ex1
+        self.dictionarySolutions['example2'] = self.ex2
+        self.dictionarySolutions['example3'] = self.ex3
+        self.dictionarySolutions['example4'] = self.ex4
+        self.dictionarySolutions['example5'] = self.ex5
+        self.dictionarySolutions['example6'] = self.ex6
+        self.dictionarySolutions['example7'] = self.ex7
+        self.dictionarySolutions['example8'] = self.ex8
+
     def ex1(self, f):
         correct_sol = {"car": ["4 wheels", "steering wheel", "4 doors"],
                          "motorcycle": ["2 wheels", "no doors"],

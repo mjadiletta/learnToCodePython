@@ -2,6 +2,29 @@ import numpy as np
 import copy as cp
 
 class numpySimpleSol:
+    def __init__(self):
+        self.numpySimpleSolutions = {}
+        self.numpySimpleSolutions['example1'] = self.ex1
+        self.numpySimpleSolutions['example2'] = self.ex2
+        self.numpySimpleSolutions['example3'] = self.ex3
+        self.numpySimpleSolutions['example4'] = self.ex4
+        self.numpySimpleSolutions['example5'] = self.ex5
+        self.numpySimpleSolutions['example6'] = self.ex6
+        self.numpySimpleSolutions['example7'] = self.ex7
+        self.numpySimpleSolutions['example8'] = self.ex8
+        self.numpySimpleSolutions['example9'] = self.ex9
+        self.numpySimpleSolutions['example10'] = self.ex10
+        self.numpySimpleSolutions['example11'] = self.ex11
+        self.numpySimpleSolutions['example12'] = self.ex12
+        self.numpySimpleSolutions['example13'] = self.ex13
+        self.numpySimpleSolutions['example14'] = self.ex14
+        self.numpySimpleSolutions['example15'] = self.ex15
+        self.numpySimpleSolutions['example16'] = self.ex16
+        self.numpySimpleSolutions['example17'] = self.ex17
+        self.numpySimpleSolutions['example18'] = self.ex18
+        self.numpySimpleSolutions['example19'] = self.ex19
+        self.numpySimpleSolutions['example20'] = self.ex20
+
     def ex1(self, f, list):
         if f(list) == "You can learn numpy!":
             print("Example 1: Correct Solution")
