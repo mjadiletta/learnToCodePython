@@ -169,5 +169,55 @@ checkSolutions['project2p3b'](sweepCutoff, b_vals, 2, 6, -10, 15, .01)
 
 
 ############################################################
+dictionaries
+
+def ex8():
+    track_dict = ex7()
+
+    x_brian = np.arange(12)
+    y_brian = track_dict["brian_damore"]
+    x_antoine = np.arange(12)
+    y_antoine = track_dict["antoine_harris"]
+    x_tyler = np.arange(12)
+    y_tyler = track_dict["tyler_hanson"]
+    x_alex = np.arange(12)
+    y_alex = track_dict["alex_rus"]
+
+    figure, axes = plt.subplots(figsize=(10, 10), nrows=2, ncols=2)
+
+    ax1 = axes[0][0]
+    ax2 = axes[0][1]
+    ax3 = axes[1][0]
+    ax4 = axes[1][1]
+
+    # Subplot 1 Brian--------------------------------------------------------------------------------
+    ax1.plot(x_brian, y_brian)
+    ax1.set(xlabel='race', ylabel='time (s)', title='Brian 200m Dash Race Progression')
+    ax1.grid()  # add a grid to the graph if you want
+
+    # Subplot 2 Antoine------------------------------------------------------------------------------
+    ax2.plot(x_antoine, y_antoine)
+    ax2.set(xlabel='race', ylabel='time (s)', title='Antoine 200m Dash Race Progression')
+    ax2.grid()  # add a grid to the graph if you want
+
+    # Subplot 3 Tyler--------------------------------------------------------------------------------
+    ax3.plot(x_tyler, y_tyler)
+    ax3.set(xlabel='race', ylabel='time (s)', title='Tyler 200m Dash Race Progression')
+    ax3.grid()  # add a grid to the graph if you want
+
+    # Subplot 4 Alex---------------------------------------------------------------------------------
+    ax4.plot(x_alex, y_alex)
+    ax4.set(xlabel='race', ylabel='time (s)', title='Rus 200m Dash Race Progression')
+    ax4.grid()  # add a grid to the graph if you want
+
+    figure.tight_layout(pad=1.5)
+    plt.show()
+    plt.close()
+    return (x_brian, y_brian, x_antoine, y_antoine, x_tyler, y_tyler, x_alex, y_alex)
+
+
+############################################################
+
+
 
 

@@ -4,6 +4,7 @@ from solutions.conditionalStatementsSolutions import conditionalStatementsSoluti
 from solutions.listSimpleSolutions import listSimpleSol
 from solutions.numpySimpleSolutions import numpySimpleSol
 from solutions.matplotlibIntroductionSolutions import matplotlibIntroductionSol
+from solutions.dictionarySolutions import dictionarySol
 from solutions.projectSolutions import projectSolutions
 
 
@@ -83,6 +84,16 @@ class CheckSolutions:
         self.matplotlibIntro['example2'] = matplotlibIntroductionSol().ex2
         self.matplotlibIntro['example3'] = matplotlibIntroductionSol().ex3
         self.matplotlibIntro['example4'] = matplotlibIntroductionSol().ex4
+
+        self.dictionarySolutions = {}
+        self.dictionarySolutions['example1'] = dictionarySol().ex1
+        self.dictionarySolutions['example2'] = dictionarySol().ex2
+        self.dictionarySolutions['example3'] = dictionarySol().ex3
+        self.dictionarySolutions['example4'] = dictionarySol().ex4
+        self.dictionarySolutions['example5'] = dictionarySol().ex5
+        self.dictionarySolutions['example6'] = dictionarySol().ex6
+        self.dictionarySolutions['example7'] = dictionarySol().ex7
+        self.dictionarySolutions['example8'] = dictionarySol().ex8
 
         self.projectSolutions = {}
         self.projectSolutions['project1'] = projectSolutions().proj1
