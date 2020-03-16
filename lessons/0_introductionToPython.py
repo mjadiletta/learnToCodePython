@@ -78,7 +78,7 @@ Example 4:
     then store an integer to variable a and print the variable
 '''
 #exit()
-a = None
+a = 1
 print(a)
 
 '''

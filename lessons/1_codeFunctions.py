@@ -23,6 +23,7 @@ abs() np.exp() np.sqrt()
 
 import numpy as np
 from solutions.CheckSolutions import CheckSolutions
+import math
 
 checkSolutions = CheckSolutions().functionSolutions
 randInt = lambda : np.random.randint(-100, 100)
@@ -49,7 +50,7 @@ Example 2:
     checkSolutions.functionSolutions['example#'](function, test#, test#)
 '''
 def ex2(a, b):
-    c = None
+    c = a * b
     return c
 checkSolutions['example2'](ex2, randInt(), randInt())
 
@@ -60,7 +61,7 @@ Example 3:
     Code the function: a / b = c
 '''
 def ex3(a, b):
-    c = None
+    c = a / b
     return c
 checkSolutions['example3'](ex3, randInt(), randInt())
 
@@ -72,7 +73,7 @@ Example 4:
     Hint: do not use ^
 '''
 def ex4(a, b):
-    c = None
+    c = a**b
     return c
 checkSolutions['example4'](ex4, randInt(), randInt())
 
@@ -83,7 +84,7 @@ Example 5:
     Hint: look at intro above at "operations learned"
 '''
 def ex5(a):
-    b = None
+    b = math.sqrt(a)
     return b
 checkSolutions['example5'](ex5, abs(randInt()))
 
@@ -94,7 +95,7 @@ Example 6:
     Hint: look at intro above at "operations learned"
 '''
 def ex6(a, b):
-    c = None
+    c = a % b
     return c
 checkSolutions['example6'](ex6, randInt(), randInt())
 
@@ -105,7 +106,7 @@ Example 7:
     Hint: look at intro above at "operations learned"
 '''
 def ex7(a):
-    b = None
+    b = math.fabs(a)
     return b
 checkSolutions['example7'](ex7, randInt())
 
@@ -117,7 +118,7 @@ Example 8:
     Hint: look at intro above at "operations learned"
 '''
 def ex8(a):
-    b = None
+    b = math.exp(a)
     return b
 checkSolutions['example8'](ex8, randInt())
 
@@ -127,7 +128,7 @@ Example 9:
     Code the function: y= mx+b
 '''
 def ex9(m, x, b):
-    y = None
+    y = m * x + b
     return y
 checkSolutions['example9'](ex9, randInt(), randInt(), randInt())
 
@@ -138,7 +139,7 @@ Example 10:
         Given sides a and b of a right triangle, find hypotenuse c
 '''
 def ex10(a, b):
-    c = None
+    c = math.sqrt(a**2 + b**2)
     return c
 checkSolutions['example10'](ex10, randInt(), randInt())
 
@@ -150,7 +151,7 @@ Example 11:
         use 9.8 for gravity
 '''
 def ex11(m, h):
-    pe = None
+    pe = 9.8 * m * h
     return pe
 checkSolutions['example11'](ex11, randInt(), randInt())
 
@@ -161,7 +162,7 @@ Example 12:
         Kinetic Energy = 1/2 * mass * velocity^2
 '''
 def ex12(m, v):
-    ke = None
+    ke = 0.5 * m * v**2
     return ke
 checkSolutions['example12'](ex12, randInt(), randInt())
 
@@ -172,7 +173,7 @@ Example 13:
     sigmoid: y = e^x / (1 + e^x)
 '''
 def ex13(x):
-    y = None
+    y = math.exp(x) / (1 + math.exp(x))
     return y
 checkSolutions['example13'](ex13, randInt())
 
@@ -183,7 +184,7 @@ Example 14:
     tanh: y = (e^x - e^(-x))/(e^(x) + e^(-x))
 '''
 def ex14(x):
-    y = None
+    y = (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
     return y
 checkSolutions['example14'](ex14, randInt())
 

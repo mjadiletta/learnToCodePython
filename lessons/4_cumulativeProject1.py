@@ -35,15 +35,17 @@ checkSolutions = CheckSolutions().projectSolutions
 '''
 Function: y = x^2
 '''
+
+
 def f(x):
-    y = None
-    return y
+    return x**2
+
 
 def project_1(f, input_val, terminal_val):
     num_loops = 0
-    while None:
-        None
-        None
+    while input_val < terminal_val:
+        input_val += f(num_loops)
+        num_loops += 1
     return num_loops
 
 print(project_1(f, 5, 10))

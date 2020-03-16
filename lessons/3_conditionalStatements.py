@@ -43,10 +43,10 @@ Example 2:
     the smaller number between inputs a and b.
 '''
 def ex2(a, b):
-    if None:
-        return None
+    if a < b:
+        return a
     else:
-        return None
+        return b
 
 checkSolutions['example2'](ex2, 5, 6)
 
@@ -57,13 +57,13 @@ Example 3:
     0 if the numbers are equal, or return the lower of the two numbers
 '''
 def ex3(a, b):
-    if None:
-        return None
+    if a == b:
+        return 0
     else:
-        if None:
-            return None
+        if a < b:
+            return a
         else:
-            return None
+            return b
 
 checkSolutions['example3'](ex3, randInt(), randInt())
 
@@ -74,10 +74,10 @@ Example 4:
     (a^2 / 5) and (b^3 / 3)
 '''
 def ex4(a, b):
-    if None:
-        return None
+    if a**2 / 5 > b**3 / 3:
+        return a
     else:
-        return None
+        return b
 
 checkSolutions['example4'](ex4, randInt(), randInt())
 

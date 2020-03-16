@@ -76,11 +76,7 @@ Example 2:
     Code a function using a loop that returns the sum of all the values in list b
 '''
 def ex2(list_b):
-    sum = 0
-
-
-
-    return sum
+    return sum(list_b)
 
 checkSolutions['example2'](ex2, copy.deepcopy(b))
 
@@ -98,7 +94,7 @@ Example 3:
     Hint: search "accessing list index python"
 '''
 def ex3(list_b):
-    return None
+    return b[2]
 
 checkSolutions['example3'](ex3, copy.deepcopy(b))
 
@@ -115,7 +111,7 @@ Example 4:
             correct python syntax for accessing a value of an array by indexing.
 '''
 def ex4(list_b):
-    return None
+    return list_b[2] + list_b[4]
 
 checkSolutions['example4'](ex4, copy.deepcopy(b))
 
@@ -129,11 +125,8 @@ Example 5:
     Note: for help look up -> "Appending to list in python."
 '''
 def ex5(list_b, new_number):
-    sum = 0
-
-
-
-    return sum
+    list_b.append(new_number)
+    return sum(list_b)
 
 checkSolutions['example5'](ex5, copy.deepcopy(b), 10)
 
@@ -148,11 +141,8 @@ Example 6:
     - Hint: list.insert(,)
 '''
 def ex6(list_b, new_number):
-    sum = 0
-
-
-
-    return sum
+    list_b.insert(0, new_number)
+    return sum(list_b)
 
 checkSolutions['example6'](ex6, copy.deepcopy(b), 10)
 
@@ -167,11 +157,8 @@ Example 7:
     - Hint list.pop(_)
 '''
 def ex7(list_b):
-    sum = 0
-
-
-
-    return sum
+    list_b.pop(0)
+    return sum(list_b)
 
 checkSolutions['example7'](ex7, copy.deepcopy(b))
 
@@ -186,11 +173,8 @@ Example 8:
     - Hint list.pop(_)
 '''
 def ex8(list_b):
-    sum = 0
-
-
-
-    return sum
+    list_b.pop(2)
+    return sum(list_b)
 
 checkSolutions['example8'](ex8, copy.deepcopy(b))
 
@@ -204,7 +188,7 @@ Example 9:
     Note: for help look up -> "Combining two lists in python."
 '''
 def ex9(list_c, list_d):
-    return None
+    return list_c + list_d
 
 checkSolutions['example9'](ex9, copy.deepcopy(c), copy.deepcopy(d))
 
@@ -218,11 +202,7 @@ Example 10:
     Note: for help look up -> "Combining two lists in python."
 '''
 def ex10(list_b, list_c, list_d):
-    sum = 0
-
-
-
-    return sum
+    return sum(list_b+list_c+list_d)
 
 checkSolutions['example10'](ex10, copy.deepcopy(b), copy.deepcopy(c), copy.deepcopy(d))
 

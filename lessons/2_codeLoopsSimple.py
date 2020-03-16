@@ -46,7 +46,8 @@ Example 2:
 '''
 def ex2():
     string = ""
-
+    for i in range(6):
+        string += str(i)
 
     return string
 
@@ -60,7 +61,8 @@ Example 3:
 '''
 def ex3():
     string = ""
-
+    for i in range(4):
+        string += str(i + 6)
 
     return string
 
@@ -74,7 +76,8 @@ Example 4:
 '''
 def ex4():
     sum = 0
-
+    for i in range(6):
+        sum += i
 
     return sum
 
@@ -89,7 +92,8 @@ Example 5:
 '''
 def ex5(a, b):
     sum = 0
-
+    for i in range(20, 25):
+        sum += i
 
     return sum
 
@@ -124,9 +128,10 @@ Example 7:
 '''
 def ex7():
     string = ""
-
-
-
+    i = 0
+    while i < 6:
+        string += str(i)
+        i += 1
     return string
 
 checkSolutions['example7'](ex7)
@@ -139,7 +144,10 @@ Example 8:
 '''
 def ex8():
     string = ""
-
+    i = 6
+    while i < 10:
+        string += str(i)
+        i += 1
 
 
     return string
@@ -154,8 +162,10 @@ Example 9:
 '''
 def ex9():
     sum = 0
-
-
+    i = 0
+    while i < 6:
+        sum += i
+        i += 1
 
     return sum
 
@@ -171,9 +181,10 @@ Example 10:
 '''
 def ex10(a, b):
     sum = 0
-
-
-
+    i = 20
+    while i < 25:
+        sum += i
+        i += 1
     return sum
 
 checkSolutions['example10'](ex10, 20, 25)
@@ -188,7 +199,8 @@ Example 11:
 '''
 def ex11(a, b):
     ans = 0
-
+    for i in range(b):
+        ans += a
 
     return ans
 
