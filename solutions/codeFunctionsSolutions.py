@@ -1,6 +1,23 @@
 import numpy as np
 
 class codeFunctionsSolutions:
+    def __init__(self):
+        self.functionSolutions = {}
+        self.functionSolutions['example1'] = self.ex1
+        self.functionSolutions['example2'] = self.ex2
+        self.functionSolutions['example3'] = self.ex3
+        self.functionSolutions['example4'] = self.ex4
+        self.functionSolutions['example5'] = self.ex5
+        self.functionSolutions['example6'] = self.ex6
+        self.functionSolutions['example7'] = self.ex7
+        self.functionSolutions['example8'] = self.ex8
+        self.functionSolutions['example9'] = self.ex9
+        self.functionSolutions['example10'] = self.ex10
+        self.functionSolutions['example11'] = self.ex11
+        self.functionSolutions['example12'] = self.ex12
+        self.functionSolutions['example13'] = self.ex13
+        self.functionSolutions['example14'] = self.ex14
+
     def ex1(self, f, a, b):
         if f(a, b) == (a+b):
             print("Example 1: Correct Solution")

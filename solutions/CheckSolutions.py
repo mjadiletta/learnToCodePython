@@ -10,21 +10,7 @@ from solutions.projectSolutions import projectSolutions
 
 class CheckSolutions:
     def __init__(self):
-        self.functionSolutions = {}
-        self.functionSolutions['example1'] = codeFunctionsSolutions().ex1
-        self.functionSolutions['example2'] = codeFunctionsSolutions().ex2
-        self.functionSolutions['example3'] = codeFunctionsSolutions().ex3
-        self.functionSolutions['example4'] = codeFunctionsSolutions().ex4
-        self.functionSolutions['example5'] = codeFunctionsSolutions().ex5
-        self.functionSolutions['example6'] = codeFunctionsSolutions().ex6
-        self.functionSolutions['example7'] = codeFunctionsSolutions().ex7
-        self.functionSolutions['example8'] = codeFunctionsSolutions().ex8
-        self.functionSolutions['example9'] = codeFunctionsSolutions().ex9
-        self.functionSolutions['example10'] = codeFunctionsSolutions().ex10
-        self.functionSolutions['example11'] = codeFunctionsSolutions().ex11
-        self.functionSolutions['example12'] = codeFunctionsSolutions().ex12
-        self.functionSolutions['example13'] = codeFunctionsSolutions().ex13
-        self.functionSolutions['example14'] = codeFunctionsSolutions().ex14
+        self.functionSolutions = codeFunctionsSolutions.functionSolutions
 
         self.loopSolutions = {}
         self.loopSolutions['example1'] = loopSimpleSolutions().ex1
