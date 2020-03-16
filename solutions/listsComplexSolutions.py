@@ -36,7 +36,8 @@ class listComplexSolutions:
             if sorted_list[index] > insert_number:
                 sorted_list.insert(index, insert_number)
                 break
-        if f(random_list, insert_number) == sorted_list:
+        out = f(random_list, insert_number)
+        if len(out) > 0 and out == sorted_list:
             print("Example 4: Correct Solution")
         else:
             print("Example 4: Incorrect Solution")
@@ -46,7 +47,8 @@ class listComplexSolutions:
             elements_visited = (len(random_list) + 1) * len(random_list)/2
         else:
             elements_visited = len(random_list) * (int(len(random_list)/2)+1)
-        if f(random_list) == (sorted(copy.deepcopy(random_list)), int(elements_visited)):
+        out = f(random_list)
+        if out[1] > 0 and out == (sorted(copy.deepcopy(random_list)), int(elements_visited)):
             print("Example 5: Correct Solution")
         else:
             print("Example 5: Incorrect Solution")
@@ -67,8 +69,8 @@ class listComplexSolutions:
                     sort_list[i], sort_list[i + 1] = sort_list[i + 1], sort_list[i]
                     swap_flag = True
             sorted_elements += 1
-
-        if f(random_list) == (sort_list, new_elements_visited):
+        out = f(random_list)
+        if len(out[0]) > 0 and out == (sort_list, new_elements_visited):
             print("Example 6: Correct Solution")
         else:
             print("Example 6: Incorrect Solution")

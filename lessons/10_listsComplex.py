@@ -105,14 +105,14 @@ def ex2(list_a):
     list_a = copy.deepcopy(list_a)  # need to do this so that the original list_a isn't edited
     new_list = []
 
-    while len(list_a) > 0:
-        current_max_value = -np.inf
-        current_max_index = None
-        for index in range(len(list_a)):
-            if list_a[index] > current_max_value:
-                current_max_value = list_a[index]
-                current_max_index = index
-        new_list.append(list_a.pop(current_max_index))
+
+
+
+
+
+
+
+
     return new_list
 
 checkSolutions['example2'](ex2, list_a)
@@ -134,8 +134,8 @@ Example 3:
 '''
 def ex3(number_items):
     random_list = []
-    for i in range(number_items):
-        random_list.append(randInt())
+
+
     return random_list
 
 checkSolutions['example3'](ex3, 25)
@@ -151,6 +151,15 @@ Example 4: Insertion Sort!
     Define a function that takes 2 parameters:
         1. an unsorted list (random_list)
         2. a number between -100 and 100
+        
+    Example:
+        a = [ 1, 2, 3, 5, 6 ]; num = 3
+        for val in a:
+            check 1 > 3: False
+            check 2 > 3: False
+            check 4 > 3: True - insert at index 3
+            ignore the rest 
+                - (lots of ways to do this - easiest is to use "break" to exit for loop)
     
     Sort the random_list using ex1()
     Then insert the new number into the sorted random_list in the correct spot. 
@@ -159,10 +168,10 @@ Example 4: Insertion Sort!
 '''
 def ex4(random_list, insert_number):
     sorted_list = ex1(random_list)
-    for index in range(len(sorted_list)):
-        if sorted_list[index] > insert_number:
-            sorted_list.insert(index, insert_number)
-            break
+
+
+
+
     return sorted_list
 
 checkSolutions['example4'](ex4, random_list, randInt())
@@ -206,16 +215,19 @@ Example 5: Selection Sort!
 '''
 def ex5(random_list):
     sort_list = copy.deepcopy(random_list)  # must include this so we don't mess up the original random_list
+    num_elements = len(sort_list)
     start_index = 0
     elements_visited = 0
-    for number_sorted in range(len(sort_list)):
-        min_index = start_index
-        for index in range(start_index, len(sort_list)):
-            if (sort_list[index] < sort_list[min_index]):
-                min_index = index
-            elements_visited += 1
 
-        sort_list[start_index], sort_list[min_index] = sort_list[min_index], sort_list[start_index]
+    for number_sorted in range(0):  # outer loop over all 4 elements in list
+        min_index = None
+        for index in range(0, 1):  # find the smallest number in this range
+            if None < None:
+                min_index = index
+            # increment elements_visited somewhere!
+
+        # swap indexes here:
+        #   use this technique: a, b = b, a
         start_index += 1
     return sort_list, elements_visited
 
@@ -291,14 +303,14 @@ def ex6(random_list):
     while(swap_flag):
         swap_flag = False
         for i in range(len(sort_list) - 1 - sorted_elements_back):
-            if i == 0:
-                new_elements_visited += 2
-            else:
-                new_elements_visited += 1
-            if sort_list[i] > sort_list[i+1]:
-                sort_list[i], sort_list[i+1] = sort_list[i+1], sort_list[i]
-                swap_flag = True
-        sorted_elements_back += 1
+            # increment new_elements_visited:
+            #   be sure to check if it's element 0 because you'll need to add 2 instead of just 1
+            if None > None:
+                None
+                # swap here: a, b = b, a
+                # change the swap flag
+
+        # don't forget to increment sorted_elements_back
     return sort_list, new_elements_visited
 
 checkSolutions['example6'](ex6, random_list)
