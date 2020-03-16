@@ -5,8 +5,27 @@ created: 3/14/202
 
 This is the readme for the python tutorial series!
 
-In order to begin the tutorial, we need to install a tool for interpreting python.
+In order to begin the tutorial, we need to install some tools for interpreting python and getting the lectures.
+We will use GitBash in order to retrieve this code repository.
 We will be using PyCharm, a python Integrated Design Environment (IDE).
+
+Installing GitBash and retrieving lecture repository (cloning repository):
+    1. Go to the GitBash homepage: https://gitforwindows.org/
+    2. Press Download
+    3. Open the .exe file
+    4. "Yes" to make changes to your device
+    5. Next -> Next -> Next -> Next -> Next -> Select the option which is (Recommended)
+        -> Next -> Next -> Next -> Use MinTTY -> Install
+    6. After Installation ~ 1 min: Select "Launch Git Bash" -> Next
+    7. Now we must change to the folder location we want to run the tutorial.
+        - The best option / easiest is to just put it on your desktop
+        - In the terminal type "cd ~/Desktop" (if you know terminal commands, you can put it in a different spot)
+        - paste this into the terminal and press enter:
+                git clone https://github.com/mjadiletta/learnToCodePython.git
+    8. Type "exit"
+    9. Congrats! You just cloned your first git repository!
+        Open a file explorer and check to see if the folder "learnToCodePython" is on your desktop.
+        Go to "solutions/8_cumulativeProject2SolutionsImages/test_sigmoid.png" and make sure the image is viewable
 
 Installing PyCharm:
     1. Go to the PyCharm homepage: https://www.jetbrains.com/pycharm/
@@ -29,6 +48,8 @@ After PyCharm is installed, let's open it!
     6. Create New Project
         a. Select the folder icon on the far right of the "Location:" bar
         b. Navigate to this lecture series main directory and select
+            If you followed the GitBash installation, then the folder you should select is:
+                "C:\Users\username\Desktop\learnToCodePython"
     7. Click on Project Interpreter: New Virtualenv environment
         a. Make sure: "New environment using Virtualenv" is selected
         b. If there is a python interpreter that we can use, use it.
