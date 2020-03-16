@@ -218,6 +218,46 @@ def ex8():
 
 ############################################################
 
+10_listComplex
+
+def ex7():
+    labels = ['10 elements', '20 elements', '30 elements', '40 elements', '50 elements']
+    bubble_sort_means = [ex6(ex3(10))[1], ex6(ex3(20))[1], ex6(ex3(30))[1], ex6(ex3(40))[1], ex6(ex3(50))[1]]
+    selection_sort = [ex5(ex3(10))[1], ex5(ex3(20))[1], ex5(ex3(30))[1], ex5(ex3(40))[1], ex5(ex3(50))[1]]
+
+    x = np.arange(len(labels))  # the label locations
+    width = 0.35  # the width of the bars
+
+    figure, ax = plt.subplots(figsize=(9, 8))
+    rects1 = ax.bar(x - width / 2, bubble_sort_means, width, label='Bubble Sort')
+    rects2 = ax.bar(x + width / 2, selection_sort, width, label='Selection Sort')
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_ylabel('Average Number of Elements Visited')
+    ax.set_title('Bubble Sort vs Selection Sort')
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.legend()
+
+    def autolabel(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.annotate('{}'.format(height),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', va='bottom')
+
+    autolabel(rects1)
+    autolabel(rects2)
+
+    figure.tight_layout()
+    plt.savefig("../solutions/10_listComplexSolutionImages/example7.png")
+    #plt.show()
+
+    return selection_sort
+
+############################################################
 
 
 
