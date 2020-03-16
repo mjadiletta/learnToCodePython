@@ -23,8 +23,8 @@ Return:
     1. The number of loop iterations it took for
         the input value to surpass the terminal value
 
-This project has no real world application necessarily, but the description contains a lot of valuable
-coding terminology that you need to be able to understand and replicate.
+This project has no real world application necessarily, but the description contains
+valuable coding terminology that you need to be able to understand and replicate.
 
 This is basically reading comprehension for code.
 """
