@@ -316,9 +316,9 @@ Lets graph this relationship:
         - The different pairs of bars represent different lengths of random_list
         - bar pair 1: len(random_list) = 10
         - bar pair 2: len(random_list) = 20
-        - bar pair 3: len(random_list) = 50
-        - bar pair 4: len(random_list) = 100
-        - bar pair 5: len(random_list) = 1000
+        - bar pair 3: len(random_list) = 30
+        - bar pair 4: len(random_list) = 40
+        - bar pair 5: len(random_list) = 50
     2. Each pair of bars represents a Bubble Sort vs Selection Sort.
     3. The height of the bars represent the total number of elements visited by the algorithm 
         - the bubble sort will be less than or equal to the selection sort in all cases
