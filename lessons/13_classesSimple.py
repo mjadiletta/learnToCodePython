@@ -2,26 +2,32 @@
 Practice Group 13: Classes Simple
 Created: 3/17/2020
 
-In this tutorial we will cover some basic object oriented programming concepts.
+In this tutorial we will cover some basic object oriented programming concepts,
+to create an Application Class - an application as if you were applying for a job.
+
 Object oriented programming or OOP is a programming paradigm (way of writing
 and organizing your code). OOP is based around these things called "objects."
+
 What is an object? It's basically an abstract way to organize portions of your
 code and store data that needs to be used by that code. In order to create an
-object you first need to define a class. The class is like a template for the
-object. Think of it like an empty job application. When you fill out the
-job application you have just created an object, or an instance of the job
-application class. Using OOP, our code will be easy to read and well organized.
+object you first need to define a class.
+
+The class is like a template for the object. Think of it like an empty
+job application. When you fill out the job application you create an object,
+or an instance of the job application class.
+
+Using OOP, our code will be easy to read and well organized.
+
 Note that Python is not the only language that supports OOP. Other languages
-like Java, C++, and JavaScript also support OOP. However, there are other
-programming paradigms, and languages that support them, that we will not cover
-in this lecture series.
+like Java, C++, and JavaScript also support OOP.
+
 
 Learning Objectives:
     1. Define a class
     2. Define class attributes
     3. Define a class method
     4. Create a constructor method
-
+    5. Create an object
 
 Example 1 is completed as a template.
 For each of the following examples, replace blank lines
@@ -32,55 +38,63 @@ will print "Correct Solution" to the terminal.
 from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().classesSimpleSolutions
 
+
+
 '''
-Example 1: Define a class
-
-In this example you will learn how to define a class in Python. Remember that 
-the class is the template that you will use to create objects in your program. 
-
-We have included an example of a class definition below. 
-
-Please use this example to create your own class called "Application"
-NOTE: you can just copy the methods/functions from the example class.
+Example 1: 
+    Define a class called "Example" with one attribute called "attribute1".
 '''
-
-
 class Example:
     def __init__(self):
         self.attribute1 = 1
 
-    def check(self):
-        if self.attribute1 == 1:
-            return True
+checkSolutions['example1'](Example())
 
-# Please write your class below :)
-
-#checkSolutions['example1'](ex1)
 
 
 '''
-Example 2: Class Attributes 
+Example 2: Define a class
 
-In the previous example you basically had to write one line of code and you 
-copied a couple of functions from the example class. In this example we will 
-introduce the concept of class attributes. An attribute is a variable 
-that stores data for each object that you create. If you want to apply for a job 
-you might need to put your name, address, date of birth, and some other information.
-Each of these pieces of information may be considered an attribute of the Application 
-class. 
+Define a class in Python called "Application". 
+The "Application" class should save one variable called "name" 
+
+Remember that the class is the template that you will use to create objects in your program.
+'''
+class RenameMe:
+    def __init__(self):
+        None
+
+# once you write the class, uncomment the checkSolutions below
+#checkSolutions['example2'](Application())
+
+
+
+'''
+Example 3: Class Attributes 
+
+In the previous example you had to write one line of code and you 
+copied a couple of functions from the example class. In this further explore 
+the concept of class attributes. 
+
+An attribute is a variable that stores data for each object that you create. 
+If you want to apply for a job you might need to put your:
+    name, address, date of birth, and some other information.
+
+Each of these pieces of information are considered an attribute 
+of the "Application" class. 
 
 We have already included the Application class you created in the previous 
-example, with one attribute. Please add the DOB (date of birth - just the year 
-the person was born), SSN (social security number), and position attributes to the 
-Application class. 
+example, with one attribute. 
+
+Please add three new attributes: 
+    1. dob          (date of birth - just the year the person was born)
+    2. ssn          (social security number)
+    3. position     (inter, manager, student etc). 
 
 User variable names: dob, ssn, and position for variable names. 
 
-Note: these attributes are all defined within this "__init__" function... just accept 
-this for now, we will talk more about this later.
+Note: these attributes are all defined within this "__init__" function.
 '''
-
-
 class Application:
     def __init__(self, name_input):
         self.name = name_input
@@ -93,7 +107,7 @@ class Application:
 
 
 '''
-Example 3: Class methods 
+Example 4: Class methods 
 
 Now that you understand what an attribute is, we will discuss what a method is. 
 In the introduction to this lecture we mentioned two things that were included 
@@ -124,8 +138,6 @@ return the age of the person
 
 Note: Assume the current year is 2020.
 '''
-
-
 class Application:
     def __init__(self, name_in, dob_in, ssn_in, position_in):
         self.name = name_in  # STRING: name of applicant
@@ -141,7 +153,7 @@ class Application:
 
 
 '''
-Example 4: Class constructor methods
+Example 5: Class constructor methods
 
 In the previous three examples you have seen this "__init__" method.
 
