@@ -7,6 +7,9 @@ from solutions.matplotlibIntroductionSolutions import matplotlibIntroductionSol
 from solutions.dictionarySolutions import dictionarySol
 from solutions.listsComplexSolutions import listComplexSolutions
 from solutions.numpyComplexSolutions import numpyComplexSolutions
+from solutions.classesSimpleSolutions import classesSimpleSolutions
+from solutions.classesComplexSolutions import classesComplexSolutions
+from solutions.fileSeparationSolutions import fileSeparationSolutions
 
 from solutions.projectSolutions import projectSolutions
 
@@ -40,7 +43,16 @@ class CheckSolutions:
         # lecture 11
         self.numpyComplexSolutions = numpyComplexSolutions().numpyComplexSol
 
-        # 4, 8, 12
+        # lecture 13
+        self.classesSimpleSolutions = classesSimpleSolutions().classesSimpleSol
+
+        # lecture 14
+        self.classesComplexSolutions = classesComplexSolutions().classesComplexSol
+
+        # lecture 15
+        self.fileSeparationSolutions = fileSeparationSolutions().fileSeparationSol
+
+        # 4, 8, 12, 16
         self.projectSolutions = projectSolutions().projectSolutions
 
 

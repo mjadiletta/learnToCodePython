@@ -1,6 +1,6 @@
 """
 Practice Project 3: Taking Input from Terimal to play Tic-Tac-Toe
-Created: 3/16/2020
+Created: 3/17/2020
 
 In this project we will use what we learned from assignments 1-11 to
 to code a tic-tac-toe game.

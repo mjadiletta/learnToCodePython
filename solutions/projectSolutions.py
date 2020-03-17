@@ -5,6 +5,7 @@ class projectSolutions:
     def __init__(self):
         self.projectSolutions = {}
         self.projectSolutions['project1'] = self.proj1
+
         self.projectSolutions['project2p1'] = self.proj2p1
         self.projectSolutions['project2p2'] = self.proj2p2
         self.projectSolutions['project2p3a'] = self.proj2p3a
@@ -14,8 +15,9 @@ class projectSolutions:
         self.projectSolutions['project3p2a'] = self.proj3p2a
         self.projectSolutions['project3p2b'] = self.proj3p2b
         self.projectSolutions['project3p3'] = self.proj3p3
-        self.projectSolutions['project3p4'] = self.proj3p4
         self.projectSolutions['project3p5'] = self.proj3p5
+
+        self.projectSolutions['project4'] = self.proj4
 
     def proj1(self, f1, f2, input_val, terminal_val):
         num_loops = 0
@@ -211,5 +213,8 @@ class projectSolutions:
         else:
             print("Project 3 P5: Incorrect Solution")
 
-    def proj3p4(self, f):
-        return True
+    def proj4(self, f):
+        if True:
+            print("Project 4: Correct Solution")
+        else:
+            print("Project 4: Incorrect Solution")
