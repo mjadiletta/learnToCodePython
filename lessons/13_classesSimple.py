@@ -29,7 +29,6 @@ with the correct functionality. If completed correctly, the checkSolutions
 will print "Correct Solution" to the terminal.
 """
 
-import numpy as np
 from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().classesSimpleSolutions
 
@@ -170,7 +169,7 @@ class Application:
 # YOU DON'T WANT TO ACCIDENTALLY INCLUDE YOUR
 #    CODE IN YOUR CLASS AND CAUSE A BUNCH OF ERRORS
 
-app1 = Application("Matt", 1998, "000-111-2222", "CEO")
+app1 = Application("Matt", 1998, "000-11-2222", "CEO")
 app1.submit()
 
 # Create your object here!
