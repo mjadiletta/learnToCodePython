@@ -1,15 +1,12 @@
 """
 Practice Project 1: Coding an exit function
 Created: 3/7/2020
-
 In this project we will use what we learned from assignments 1, 2, and 3
 to code a function called "project_1" that will do the following:
-
 Inputs:
     1. f - a function that defines the mathematical formula: y = x^2
     2. input_val - the initial input value
     3. terminal_val - the terminating value
-
 Functionality:
     1. Use a while loop to increment to the input value
         1a. The value added to input_val is based on the input function (f)
@@ -18,14 +15,11 @@ Functionality:
         1d. Add y to the input_value each iteration of the loop
         1e. Increment the num_loops each loop
     2. Terminate the loop when the input value is greater than or equal to the terminal value
-
 Return:
     1. The number of loop iterations it took for
         the input value to surpass the terminal value
-
 This project has no real world application necessarily, but the description contains
 valuable coding terminology that you need to be able to understand and replicate.
-
 This is basically reading comprehension for code.
 """
 

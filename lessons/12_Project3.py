@@ -19,6 +19,8 @@ Functionality:
 
 """
 import numpy as np
+from solutions.CheckSolutions import CheckSolutions
+checkSolutions = CheckSolutions().projectSolutions
 
 ''' 
 Part 1a:
@@ -26,8 +28,10 @@ Part 1a:
     Make all the characters on the board "-"
 '''
 def createBoard():
-    gb = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+    gb = None
     return gb
+
+checkSolutions['project3p1a'](createBoard)
 
 
 '''
@@ -38,14 +42,13 @@ Part 1b:
      - | - | O
      - | - | X
      - | O | -
+     
+     There's no check solution to this, so just do it correctly.
 '''
 def printGameBaord(gb):
-    for row in gb:
-        for i in range(len(row)):
-            if i < len(row)-1:
-                print(" " + row[i] + " |", end='')
-            else:
-                print(" " + row[i])
+    for r in range(len(gb)):
+        for c in range(len(gb[r])):
+            None
 
 
 '''
@@ -55,20 +58,19 @@ Part 2a:
     we need to get a users input from the terminal. 
     
     The easiest way to get an input from the terminal is with the following method:
-    row = input()
-    column = input()
+    row = input("message")
+    column = input("message")
     
     Adopt this for getting the row and column of user input.     
     return the row and column values for this function.
     Hint: Make sure they are cast to ints using int() otherwise they will be strings
 '''
 def getUserInput():
-    print("Input Row: ", end="")
-    row = input()
-    print("Input Column: ", end="")
-    column = input()
-    return int(row), int(column)
+    row = None
+    column = None
+    return None, None
 
+checkSolutions['project3p2a'](getUserInput)
 
 '''
 Part 2b: 
@@ -85,11 +87,13 @@ def userTurn(gb):
     invalid_entry = True
     while(invalid_entry):
         invalid_entry = False
-        row, column = getUserInput()
-        if row < 0 or row > 3 or column < 0 or column > 3 or gb[row-1][column-1] != "-":
+        row, column = 0, 0
+        if None:  # check for invalid entry
             print("Invalid Entry, Try again")
             invalid_entry = True
     return row, column
+
+checkSolutions['project3p2b'](userTurn, createBoard())
 
 
 '''
@@ -101,9 +105,13 @@ def markBoardUser(gb):
     row, column = userTurn(gb)
     gb[row-1][column-1] = "O"
 
+checkSolutions['project3p3'](markBoardUser, createBoard())
+
 
 '''
 Do Not Edit: CPU Game Play
+There is one way to beat this CPU 
+- find it for a "fantastic prize"
 '''
 def markBoardCPU(gb):
     def row_sum(pgb, row):
@@ -111,7 +119,7 @@ def markBoardCPU(gb):
         if sum == 4:
             sum = 8
         if sum == 6:
-            sum = 9
+            sum = 12
         if sum == 5:
             sum = 1
         return sum
@@ -120,7 +128,7 @@ def markBoardCPU(gb):
         if sum == 4:
             sum = 8
         if sum == 6:
-            sum = 9
+            sum = 12
         if sum == 5:
             sum = 1
         return sum
@@ -129,18 +137,22 @@ def markBoardCPU(gb):
         if sum == 4:
             sum = 8
         if sum == 6:
-            sum = 9
+            sum = 12
         if sum == 5:
             sum = 1
+        #if sum == 3 and pgb[2][0] == 2 and pgb[0][2] == 2:
+        #    sum = 0
         return sum
     def for_horiz(pgb):
         sum = pgb[0][2] + pgb[1][1] + pgb[2][0]
         if sum == 4:
             sum = 8
         if sum == 6:
-            sum = 9
+            sum = 12
         if sum == 5:
             sum = 1
+        if sum == 3 and pgb[0][0] == 2 and pgb[2][2] == 2:
+            sum = 0
         return sum
     pgb = np.zeros((3,3))
     pgbf = np.zeros((3,3))
@@ -160,7 +172,6 @@ def markBoardCPU(gb):
                 if r == 2 and c == 0 or r == 1 and c == 1 or r == 0 and c == 2:
                     pgbf[r][c] += for_horiz(pgb)
     pgbf[1][1] += 1
-    #print(pgbf)
     pgbf = pgbf.reshape(9,1)
     max = np.argmax(pgbf)
     r = int(max/3)
@@ -175,30 +186,38 @@ Part 5:
     
     Hint: use a large if statement with 8 checks for the eight ways to win tic-tac-toe
     
-    If the game board has no spots left or if someone one, 
-    checkTermination = True
-    return termination, tieOrWin
-    tieOrWin = 0 if tied, 1 if playerOrCPU wins 
+    If the game board has no spots left or if someone won, 
+        checkTermination = True
+        return termination, tieOrWin
+    tieOrWin =  "tie": if tied / there are no spots left on the board, 
+                "win": if the player or cpu won, 
+                None: if there are still spots left to play and no one won 
+    
+    Note:
+    Start with Part 5 below and just call checkTermination(game_board) in part4 in the correct spot
+    Test this function yourself with various game board instances / setups.
+    The check solution will tell you if it is actually correct or not.  
 '''
 def checkTermination(gb):
     termination = True
     tieOrWin = "tie"
+
+    # check if there are still empty spots
+    # if there are still empty spots, termination = False, tieOrWin = None
     for row in gb:
         for column in row:
-            if column == "-":
-                termination = False
-                tieOrWin = None
-    if  gb[0][0] == gb[1][0] and gb[0][0] == gb[2][0] and gb[0][0] != '-' or \
-        gb[0][1] == gb[1][1] and gb[0][1] == gb[2][1] and gb[0][1] != '-' or \
-        gb[0][2] == gb[1][2] and gb[0][2] == gb[2][2] and gb[0][2] != '-' or \
-        gb[0][0] == gb[0][1] and gb[0][0] == gb[0][2] and gb[0][0] != '-' or \
-        gb[1][0] == gb[1][1] and gb[1][0] == gb[1][2] and gb[1][0] != '-' or \
-        gb[2][0] == gb[2][1] and gb[2][0] == gb[2][2] and gb[2][0] != '-' or \
-        gb[0][0] == gb[1][1] and gb[0][0] == gb[2][2] and gb[0][0] != '-' or \
-        gb[2][0] == gb[1][1] and gb[2][0] == gb[0][2] and gb[2][0] != '-':
-        termination = True
-        tieOrWin = "win"
-    return termination, tieOrWin
+            if None:
+                None
+
+    # add the other checks to this if statement to check all possible winning solutions to tic-tac-toe
+    if gb[0][0] == gb[1][0] and gb[0][0] == gb[2][0] and gb[0][0] != '-' or \
+        None :
+        termination = None
+        tieOrWin = None
+
+    return None, None
+
+checkSolutions['project3p5'](checkTermination, createBoard())
 
 
 '''
@@ -209,42 +228,28 @@ Part 4:
 
     Alternate between user turns and CPU turns
     General layout:
-        whose_turn = 0
-        while continue_game:
-            if whose_turn == 0:
-                markBoardUser(gb)
-                whose_turn = 1
-            else:
-                markBoardCPU(gb)
-                whose_turn = 0
-            printGameBoard(gb)
-            continue_game = checkTermination(gb)
-        print(who won?)
-        printGameBoard(gb)
+        whose turn -> 0
+        while continueGame
+            if players turn:
+                player marks the board
+                whose turn -> 1
+            if cpu turn:
+                cpu marks the board
+                whose turn -> 0
+        print who won
+        print game board
+    
+        
+        Note: There is only 1 way to beat my CPU.
+            If you find it, I'll give you a "fabulous prize!" 
+            
+        - There is no check solution for this. If you can play
+            a game of Tic-Tac-Toe and the correct outcomes appear
+            then you succeeded in creating the function.
 '''
 def playGame():
-    game_board = createBoard()
-    whose_turn = 0
-    terminate_game = False
-    printGameBaord(game_board)
-    while not terminate_game:
-        if whose_turn == 0:
-            print("Users Turn")
-            markBoardUser(game_board)
-            whose_turn = 1
-        else:
-            print("CPU Turn")
-            markBoardCPU(game_board)
-            whose_turn = 0
-        printGameBaord(game_board)
-        terminate_game, tieOrWin = checkTermination(game_board)
-    if tieOrWin == "win":
-        if whose_turn == 0:
-            print("CPU Winner")
-        else:
-            print("Player Winner")
-    else:
-        print("Tie Game")
-    printGameBaord(game_board)
+    game_board = None
+    while False:
+        None
 
 playGame()
