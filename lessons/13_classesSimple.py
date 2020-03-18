@@ -56,7 +56,7 @@ checkSolutions['example1'](Example())
 Example 2: Define a class
 
 Define a class in Python called "Application". 
-The "Application" class should save one variable called "name" 
+The "Application" class should save one variable called "name", hardcoded to "Sam".
 
 Remember that the class is the template that you will use to create objects in your program.
 '''
@@ -91,18 +91,21 @@ Please add three new attributes:
     2. ssn          (social security number)
     3. position     (inter, manager, student etc). 
 
-User variable names: dob, ssn, and position for variable names. 
+User variable names: dob, ssn, and position for variable names
 
 Note: these attributes are all defined within this "__init__" function.
 '''
 class Application:
-    def __init__(self, name_input):
-        self.name = name_input
+    def __init__(self, name_in):
+        self.name = name_in
+        None
+        None
+        None
 
     def submit(self):
         print("Submitted " + self.name + "'s application!")
 
-#checkSolutions['example2'](Application())
+checkSolutions['example3'](Application)
 
 
 
@@ -110,29 +113,34 @@ class Application:
 Example 4: Class methods 
 
 Now that you understand what an attribute is, we will discuss what a method is. 
-In the introduction to this lecture we mentioned two things that were included 
-in an object: code and data. Attributes represent the data stored in an object 
-and methods represent the code that manipulates that data for the object. Specifically,
-a method is a function contained within a class, that has access to the class attributes 
-and may be "called on an object of that class." 
+In the introduction to this lecture we noted two main parts of an object: code and data. 
+
+Attributes represent the data stored in an object.
+Methods represent the code that manipulates that data for the object. 
+
+Specifically, a method is a function contained within a class, 
+    that has access to the class attributes and may be: "called on an object of that class." 
 
 That phrase may have been confusing so lets break it down. To call a method or function 
 just means to execute the function after you have defined it. In order to execute the 
 function you need to write the function name and pass any inputs required by the function. 
-E.g.: assume you have a function called walk defined that requires one integer input... 
-To call the function you would write "walk(23)" in your code. 
+E.g.: assume you have defined a function called walk, which requires one integer input... 
+    To call the function you would write "walk(23)" in your code. 
 
-Calling a function on an object is very similar, however, you need to be sure that the 
-function you are calling was defined within the class. In the previous example, we 
+Calling a method of an object is very similar, however, you need to be sure that the 
+method you are calling is defined within the class. In the previous example, we 
 defined a class Application, so if we created an object called "app1": 
     app1 = Application(var1, var2, ...)
     
-based on the Application class we can call the "submit" function with the following code:
+based on the Application class we can call the "submit" method with the following code:
     app1.submit()
 
-Please try to add another method to our Application class called 
-"calculate_applicant_age." This function will calculate the age 
-(in years) of the applicant based on the DOB attribute (the year the applicant was born).
+
+
+Add another method to our Application class called "calculate_applicant_age" 
+
+This function will calculate the age (in years) of the applicant 
+based on the DOB attribute (the year the applicant was born).
 
 return the age of the person
 
@@ -149,26 +157,30 @@ class Application:
         print("Submitted " + self.name + "'s application!")
 
     # add the calculate_applicant_age method here. (Hint: use the submit method as a template)
+    def renameMe(self):
+        return None
+
+checkSolutions['example4'](Application)
 
 
 
 '''
 Example 5: Class constructor methods
 
-In the previous three examples you have seen this "__init__" method.
+In the previous four examples you have seen this "__init__" method.
 
 The "__init__" method is a constructor. This method constructs an object based on the class. 
-When you make an object from a class, if you have defined the "__init__" method, it 
+When you instantiate an object from a class, if you have defined the "__init__" method, it 
 will be executed IMMEDIATELY. In Python the __init__ method is used to define class attributes. 
 
-The inputs to the __init__ method are the data necessary for defining the attributes 
+The inputs to the __init__ method are the data required for defining attributes 
 for that particular object. As you have seen, when you create a new attribute you 
 need to add a new input to your __init__ method definition 
     (e.g., name_in, dob_in, ssn_in, and position_in).
 
-There may even be some instances when you don't need any data to be input to create an object.
+Note: There may be some instances when you don't need any data to be input to create an object.
 
-Because you have already defined a constructor in the previous examples in this one you will create a 
+Because you have already defined a constructor in the previous examples, in this one you will create a 
 new object. Please name the object "app2" and use the definition of "app1" below as a reference. 
 Once you have created the object, call the calculate_applicant_age method and print the result.
 
@@ -197,10 +209,14 @@ class Application:
 # MAKE SURE YOUR SPACING IS CORRECT
 # YOU DON'T WANT TO ACCIDENTALLY INCLUDE YOUR
 #    CODE IN YOUR CLASS AND CAUSE A BUNCH OF ERRORS
-
+print("-----------------------------")
 app1 = Application("Matt", 1998, "000-11-2222", "CEO")
 app1.submit()
 
 # Create your object here!
+app2 = None
+
+
+checkSolutions['example5'](app2)
 
 
