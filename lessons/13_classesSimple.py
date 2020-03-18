@@ -39,17 +39,18 @@ from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().classesSimpleSolutions
 
 
-
 '''
 Example 1: 
     Define a class called "Example" with one attribute called "attribute1".
 '''
+
+
 class Example:
     def __init__(self):
         self.attribute1 = 1
 
-checkSolutions['example1'](Example())
 
+checkSolutions['example1'](Example())
 
 
 '''
@@ -60,13 +61,14 @@ The "Application" class should save one variable called "name", hardcoded to "Sa
 
 Remember that the class is the template that you will use to create objects in your program.
 '''
+
+
 class RenameMe:
     def __init__(self):
         None
 
 # once you write the class, uncomment the checkSolutions below
-#checkSolutions['example2'](Application())
-
+# checkSolutions['example2'](Application())
 
 
 '''
@@ -95,6 +97,8 @@ User variable names: dob, ssn, and position for variable names
 
 Note: these attributes are all defined within this "__init__" function.
 '''
+
+
 class Application:
     def __init__(self, name_in):
         self.name = name_in
@@ -105,8 +109,8 @@ class Application:
     def submit(self):
         print("Submitted " + self.name + "'s application!")
 
-checkSolutions['example3'](Application)
 
+checkSolutions['example3'](Application)
 
 
 '''
@@ -136,7 +140,6 @@ based on the Application class we can call the "submit" method with the followin
     app1.submit()
 
 
-
 Add another method to our Application class called "calculate_applicant_age" 
 
 This function will calculate the age (in years) of the applicant 
@@ -146,6 +149,8 @@ return the age of the person
 
 Note: Assume the current year is 2020.
 '''
+
+
 class Application:
     def __init__(self, name_in, dob_in, ssn_in, position_in):
         self.name = name_in  # STRING: name of applicant
@@ -160,8 +165,8 @@ class Application:
     def renameMe(self):
         return None
 
-checkSolutions['example4'](Application)
 
+checkSolutions['example4'](Application)
 
 
 '''
