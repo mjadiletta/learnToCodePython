@@ -124,7 +124,6 @@ class Book:
         return toc
 
 
-
 class Chapter:
     pass
 
@@ -132,4 +131,23 @@ class Chapter:
 class Page:
     pass
 
-checkSolutions['example1'](ex1)
+
+pub_date = Date(3, 17, 2017)
+tutorials = Book("Python Tutorials", "Brian", pub_date)
+
+# create three chapters below
+# Chapter 1: Intro to Python
+# Chapter 2: Intro to OOP
+# Chapter 3: Game of Life
+
+# for each of these chapters add 2 new pages
+# Chapter #, Page #: TEXT ON THAT PAGE
+# Chapter 1, Page 1: Welcome to Python! Time to create a Hello World application.
+# Chapter 1, Page 2: Great job! Now lets start creating some new functions.
+# Chapter 2, Page 3: Now that you know some python lets learn some OOP concepts.
+# Chapter 2, Page 4: Classes, attributes, methods, objects, inheritance, etc.
+# Chapter 3, Page 5: Lets create a game of life simulation!
+# Chapter 3, Page 6: Here are all the rules your simulation needs to follow.
+
+
+checkSolutions['example1'](tutorials)
