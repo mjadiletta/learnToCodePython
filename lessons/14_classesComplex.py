@@ -13,7 +13,7 @@ Learning Objectives:
 """
 
 from solutions.CheckSolutions import CheckSolutions
-checkSolutions = CheckSolutions().ClassesComplexSolutions
+checkSolutions = CheckSolutions().classesComplexSolutions
 
 '''
 Example 1: Objects in classes in classes in classes ...
