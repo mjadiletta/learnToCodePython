@@ -19,6 +19,8 @@ class projectSolutions:
 
         self.projectSolutions['project4'] = self.proj4
 
+        self.projectSolutions['project5'] = self.proj5
+
     def proj1(self, f1, f2, input_val, terminal_val):
         num_loops = 0
         iv = copy.deepcopy(input_val)
@@ -218,3 +220,9 @@ class projectSolutions:
             print("Project 4: Correct Solution")
         else:
             print("Project 4: Incorrect Solution")
+
+    def proj5(self, f):
+        if f():
+            print("Project 5: Correct Solution")
+        else:
+            print("Project 5: Incorrect Solution")

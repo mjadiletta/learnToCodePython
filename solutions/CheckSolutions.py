@@ -10,6 +10,9 @@ from solutions.numpyComplexSolutions import numpyComplexSolutions
 from solutions.classesSimpleSolutions import classesSimpleSolutions
 from solutions.classesComplexSolutions import classesComplexSolutions
 from solutions.fileSeparationSolutions import fileSeparationSolutions
+from solutions.fileIOSolutions import fileIOSolutions
+from solutions.graphicsIntroSolutions import graphicsIntroSolutions
+from solutions.graphicsComplexSolutions import graphicsComplexSolutions
 
 from solutions.projectSolutions import projectSolutions
 
@@ -52,7 +55,16 @@ class CheckSolutions:
         # lecture 15
         self.fileSeparationSolutions = fileSeparationSolutions().fileSeparationSol
 
-        # 4, 8, 12, 16
+        # lecture 17
+        self.fileIOSolutions = fileIOSolutions().fileIOSolutions
+
+        # lecture 18
+        self.graphicsIntroSolutions = graphicsIntroSolutions().graphicsIntroSolutions
+
+        # lecture 19
+        self.graphicsComplexSolutions = graphicsComplexSolutions().graphicsComplexSolutions
+
+        # 4, 8, 12, 16, 20
         self.projectSolutions = projectSolutions().projectSolutions
 
 
