@@ -247,9 +247,9 @@ Part 4:
             a game of Tic-Tac-Toe and the correct outcomes appear
             then you succeeded in creating the function.
 '''
-def playGame():
-    game_board = None
+def playGame(game_board):
     while False:
         None
 
-playGame()
+game_board = None
+playGame(game_board)

@@ -434,6 +434,43 @@ playGame()
 
 ############################################################
 
+lecture 17 ex 7 and 8 solutions
+
+def ex7():
+    print("Printing to the Terminal!")
+    temp1 = sys.stdout
+    f = open("../fileIO/out1.txt", 'w')
+    sys.stdout = f
+    print("Printing to the Out1.txt File!")
+    f.close()
+    sys.stdout = temp1
+    print("Printing Back to the Terminal!")
+
+
+def createBoard():
+    game_board = []
+    inputFile = open("../fileIO/ticTacToeBoard1.txt", 'r')
+    data = inputFile.readlines()
+    for d in data:
+        game_board.append(d.replace("| ", "").replace("\n", "").replace(" ", "", 1).split(" "))
+    return game_board
+
+from solutions.ticTacToeSolution import ticTacToe
+def playGameFromBoard():
+    tTT = ticTacToe()
+    game_board = createBoard()
+
+    temp_out = sys.stdout
+    sys.stdout = open("../fileIO/ticTacToeOut.txt", "w")
+
+    tTT.playGame(game_board)
+
+    sys.stdout.close()
+    sys.stdout = temp_out
+
+    print("Fixed the output!")
+
+
 ############################################################
 
 ############################################################
