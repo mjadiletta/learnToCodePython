@@ -9,7 +9,7 @@ to code ...
 """
 import numpy as np
 from solutions.CheckSolutions import CheckSolutions
-checkSolutions = CheckSolutions().projectSolutions
+checkSolutions = CheckSolutions().project4Solutions
 
 
 '''

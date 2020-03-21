@@ -24,7 +24,7 @@ This is basically reading comprehension for code.
 """
 
 from solutions.CheckSolutions import CheckSolutions
-checkSolutions = CheckSolutions().projectSolutions
+checkSolutions = CheckSolutions().project1Solutions
 
 '''
 Function: y = x^2

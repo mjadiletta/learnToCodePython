@@ -38,7 +38,7 @@ Then we will graph the band-pass function using matplotlib.
 import numpy as np
 import matplotlib.pyplot as plt
 from solutions.CheckSolutions import CheckSolutions
-checkSolutions = CheckSolutions().projectSolutions
+checkSolutions = CheckSolutions().project2Solutions
 
 
 '''

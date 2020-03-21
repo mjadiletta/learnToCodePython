@@ -20,7 +20,7 @@ Functionality:
 """
 import numpy as np
 from solutions.CheckSolutions import CheckSolutions
-checkSolutions = CheckSolutions().projectSolutions
+checkSolutions = CheckSolutions().project3Solutions
 
 ''' 
 Part 1a:

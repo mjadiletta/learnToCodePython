@@ -1,7 +1,7 @@
 import numpy as np
 import copy
 
-class projectSolutions:
+class project4Solutions:
     def __init__(self):
         self.projectSolutions = {}
         self.projectSolutions['project4'] = self.proj4

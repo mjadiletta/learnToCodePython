@@ -1,24 +1,24 @@
-from solutions.a1_codeFunctionsSolutions import codeFunctionsSolutions
-from solutions.a2_loopSimpleSolutions import loopSimpleSolutions
-from solutions.a3_conditionalStatementsSolutions import conditionalStatementsSolutions
-from solutions.a5_listSimpleSolutions import listSimpleSol
-from solutions.a6_numpySimpleSolutions import numpySimpleSol
-from solutions.a7_matplotlibIntroductionSolutions import matplotlibIntroductionSol
-from solutions.a9_dictionarySolutions import dictionarySol
-from solutions.a10_listsComplexSolutions import listComplexSolutions
-from solutions.a11_numpyComplexSolutions import numpyComplexSolutions
-from solutions.a13_classesSimpleSolutions import classesSimpleSolutions
-from solutions.a14_classesComplexSolutions import classesComplexSolutions
-from solutions.a15_fileSeparationSolutions import fileSeparationSolutions
-from solutions.a17_fileIOSolutions import fileIOSolutions
-from solutions.a18_graphicsIntroSolutions import graphicsIntroSolutions
-from solutions.a19_graphicsComplexSolutions import graphicsComplexSolutions
+from solutions.checkSolutionsFiles.a1_codeFunctionsSolutions import codeFunctionsSolutions
+from solutions.checkSolutionsFiles.a2_loopSimpleSolutions import loopSimpleSolutions
+from solutions.checkSolutionsFiles.a3_conditionalStatementsSolutions import conditionalStatementsSolutions
+from solutions.checkSolutionsFiles.a5_listSimpleSolutions import listSimpleSol
+from solutions.checkSolutionsFiles.a6_numpySimpleSolutions import numpySimpleSol
+from solutions.checkSolutionsFiles.a7_matplotlibIntroductionSolutions import matplotlibIntroductionSol
+from solutions.checkSolutionsFiles.a9_dictionarySolutions import dictionarySol
+from solutions.checkSolutionsFiles.a10_listsComplexSolutions import listComplexSolutions
+from solutions.checkSolutionsFiles.a11_numpyComplexSolutions import numpyComplexSolutions
+from solutions.checkSolutionsFiles.a13_classesSimpleSolutions import classesSimpleSolutions
+from solutions.checkSolutionsFiles.a14_classesComplexSolutions import classesComplexSolutions
+from solutions.checkSolutionsFiles.a15_fileSeparationSolutions import fileSeparationSolutions
+from solutions.checkSolutionsFiles.a17_fileIOSolutions import fileIOSolutions
+from solutions.checkSolutionsFiles.a18_graphicsIntroSolutions import graphicsIntroSolutions
+from solutions.checkSolutionsFiles.a19_graphicsComplexSolutions import graphicsComplexSolutions
 
-from solutions.a4_project1Solution import project1Solutions
-from solutions.a8_project2Solution import project2Solutions
-from solutions.a12_project3Solution import project3Solutions
-from solutions.a16_project4Solution import project4Solutions
-from solutions.a20_project5Solution import project5Solutions
+from solutions.checkSolutionsFiles.a4_project1Solution import project1Solutions
+from solutions.checkSolutionsFiles.a8_project2Solution import project2Solutions
+from solutions.checkSolutionsFiles.a12_project3Solution import project3Solutions
+from solutions.checkSolutionsFiles.a16_project4Solution import project4Solutions
+from solutions.checkSolutionsFiles.a20_project5Solution import project5Solutions
 
 
 class CheckSolutions:
@@ -33,7 +33,7 @@ class CheckSolutions:
         self.conditionalSolutions = conditionalStatementsSolutions().conditionalSolutions
 
         # lecture 4: Project 1
-        self.project4Solutions = project4Solutions().projectSolutions
+        self.project1Solutions = project1Solutions().projectSolutions
 
         # lecture 5
         self.listSimpleSolutions = listSimpleSol().listSimpleSolutions
