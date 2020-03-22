@@ -473,6 +473,185 @@ def playGameFromBoard():
 
 ############################################################
 
+lecture 18 solutions
+
+def ex1():
+    win = GraphWin("My Circle", 500, 500)  # name of window, width, height
+    c = Circle(Point(250, 250), 100)
+    c.setFill("lightblue")
+    r = Rectangle(Point(150, 150), Point(350, 350))
+    r.setFill("maroon")
+    l = Line(Point(0, 0), Point(500, 500))
+    l.setOutline("medium sea green")
+    l.setWidth(3)
+    r.draw(win)
+    c.draw(win)
+    l.draw(win)
+
+    # Close window if the return/enter key is pressed
+    while True:
+        if win.checkKey() == "Return":
+            win.close()
+            break
+
+    return win.items
+
+#checkSolutions['example1'](ex1)
+
+
+def ex2(RequestClose=True):
+    win = GraphWin("My Track", 904, 564)  # name of window, width, height
+    tc1 = Oval(Point(100, 100), Point(468, 464))
+    tc2 = Oval(Point(436, 100), Point(804, 464))
+    tr = Rectangle(Point(284, 100), Point(620, 464))
+    l1 = Line(Point(284, 100), Point(620, 100))
+    l2 = Line(Point(284, 464), Point(620, 464))
+    tc1.setFill("IndianRed4")
+    tc2.setFill("IndianRed4")
+    tr.setFill("IndianRed4")
+    tr.setOutline("IndianRed4")
+    tc1.draw(win)
+    tc2.draw(win)
+    tr.draw(win)
+    l1.draw(win)
+    l2.draw(win)
+
+    tc1w = Oval(Point(138, 138), Point(430, 426))
+    tc2w = Oval(Point(474, 138), Point(766, 426))
+    trw = Rectangle(Point(284, 138), Point(620, 426))
+    l1w = Line(Point(284, 138), Point(620, 138))
+    l2w = Line(Point(284, 426), Point(620, 426))
+
+    tc1w.setFill("sea green")
+    tc1w.setOutline("white")
+    tc2w.setFill("sea green")
+    tc2w.setOutline("white")
+    trw.setFill("sea green")
+    trw.setOutline("sea green")
+    l1w.setFill("white")
+    l2w.setFill("white")
+
+    tc1w.draw(win)
+    tc2w.draw(win)
+    trw.draw(win)
+    l1w.draw(win)
+    l2w.draw(win)
+
+    lf = Line(Point(284, 100), Point(284, 138))
+    lf.setWidth(3)
+    lf.draw(win)
+
+    fin = Text(Point(284, 80), "Finish Line")
+    fin.draw(win)
+
+    sprintBox = Rectangle(Point(620, 100), Point(805, 138))
+    sprintBox.setFill("IndianRed4")
+    sprintBox.draw(win)
+
+    sbl1 = Line(Point(620, 100), Point(620, 138))
+    sbl2 = Line(Point(620, 138), Point(732, 138))
+    sbl1.setFill("IndianRed4")
+    sbl2.setFill("white")
+
+    sbl1.draw(win)
+    sbl2.draw(win)
+
+    # Close window if the return/enter key is pressed
+    while RequestClose:
+        if win.checkKey() == "Return":
+            win.close()
+            break
+
+    return win.items, win
+
+# uncomment once you are working on example2
+#checkSolutions['example2'](ex2)
+
+def ex3(RequestClose=True):
+    items, win = ex2(RequestClose=False)
+
+    player = Circle(Point(824, 119), 16)
+    player.setFill("NavajoWhite2")
+    player.draw(win)
+
+    player2 = Circle(Point(824, 119), 16)
+    player2.setFill("black")
+    player2.draw(win)
+
+
+    i = 0
+    while player2.getCenter().getX()+19 > 284:
+        speed = -.2 * (i/(i+100))
+        player2.move(speed, 0)
+
+        player.move(-.2, 0)
+        i += 1
+
+    # Close window if the return/enter key is pressed
+    while RequestClose:
+        if win.checkKey() == "Return":
+            win.close()
+            break
+
+    return items
+
+#checkSolutions['example3'](ex3)
+
+
+def delta_y(x, a, b):
+    if x < 165:
+        return -1*(b**2-b**2/a**2*x**2)**(-1/2)*b**2/a**2*x
+    if x == 165:
+        return np.inf
+checkSolutions['example4dy'](delta_y)
+
+
+def norm_grad(unnormalized_dy, y):
+    if unnormalized_dy == None or unnormalized_dy == np.inf:
+        if y < 0:
+            return -.001, -.999
+        else:
+            return .001, -.999
+    else:
+        return -1*np.sign(y)*1/np.sqrt(unnormalized_dy**2 + 1), unnormalized_dy/np.sqrt(unnormalized_dy**2 + 1)
+
+checkSolutions['example4normdy'](norm_grad, delta_y)
+
+
+def ex4(RequestClose=True):
+    items, win = ex2(RequestClose=False)
+
+    player = Circle(Point(620, 445), 16)
+    player.setFill("NavajoWhite2")
+    player.draw(win)
+
+    center = (620, 282)
+
+
+    f = np.sqrt(165**2 -163**2)
+
+    i = 0
+    while player.getCenter().getY() > 119:
+        speed = .1 * (i/(i+4000))
+        x = player.getCenter().getX() - center[0]
+        y = -1*(player.getCenter().getY() - center[1])
+        dy = delta_y(x, 165, 163)  # always negative for x > 0
+        dx, dy = norm_grad(dy, y)
+        player.move(speed * dx, speed * dy)
+        i += 1
+    while player.getCenter().getX()+19 > 284:
+        player.move(-speed, 0)
+
+    # Close window if the return/enter key is pressed
+    while RequestClose:
+        if win.checkKey() == "Return":
+            win.close()
+            break
+
+    return items
+
+checkSolutions['example4'](ex4)
+
 ############################################################
 
 ############################################################

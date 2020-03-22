@@ -1,6 +1,6 @@
 """
 Practice Group 17: File Input and Output
-Created: 3/__/2020
+Created: 3/21/2020
 
 Reading and writing to files in python is crucial for creating programs that
 require external data, output lots of data, etc. There are a number of ways
