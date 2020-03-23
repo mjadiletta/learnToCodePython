@@ -200,11 +200,78 @@ class graphicsComplexSolutions:
 
 
     def ex5(self, f):
-        items = f()
-        correct = True
+        correct_net = True
+        game = f()
+        game.newBlock()
 
+        correct = True
+        if game.CheckMoveLeft() == False:
+            correct = False
+        game.gameState[0][game.currentBlockColumn - 1] = 1
+        if game.CheckMoveLeft() == True:
+            correct = False
+        game.gameState[0][game.currentBlockColumn - 1] = None
+        temp = game.currentBlockColumn
+        game.currentBlockColumn = 0
+        if game.CheckMoveLeft() == True:
+            correct = False
+        game.currentBlockColumn = temp
         if correct:
+            print("Example 5 CheckMoveLeft : Correct")
+        else:
+            correct_net = False
+            print("Example 5 CheckMoveLeft : Incorrect")
+
+        correct = True
+        if game.CheckMoveRight() == False:
+            correct = False
+        game.gameState[0][game.currentBlockColumn + 1] = 1
+        if game.CheckMoveRight() == True:
+            correct = False
+        game.gameState[0][game.currentBlockColumn + 1] = None
+        temp = game.currentBlockColumn
+        game.currentBlockColumn = 8
+        if game.CheckMoveRight() == True:
+            correct = False
+        game.currentBlockColumn = temp
+        if correct:
+            print("Example 5 CheckMoveRight : Correct")
+        else:
+            correct_net = False
+            print("Example 5 CheckMoveRight : Incorrect")
+
+
+        correct = True
+        if game.CheckMoveDown() == False:
+            correct = False
+        game.gameState[game.currentBlockRow + 1][game.currentBlockColumn] = 1
+        if game.CheckMoveDown() == True:
+            correct = False
+        game.gameState[game.currentBlockRow + 1][game.currentBlockColumn] = None
+        temp = game.currentBlockRow
+        game.currentBlockRow = 11
+        if game.CheckMoveDown() == True:
+            correct = False
+        game.currentBlockRow = temp
+        if correct:
+            print("Example 5 CheckMoveDown : Correct")
+        else:
+            correct_net = False
+            print("Example 5 CheckMoveDown : Incorrect")
+
+        if correct_net:
             print("Example 5: Correct Solution")
         else:
-            print("Example 4=5: Incorrect Solution")
+            print("Example 5: Incorrect Solution")
+
+        game.UserMoveBlock()
+
+    def ex6(self, f):
+        correct_net = True
+
+        if correct_net:
+            print("Example 6: Correct Solution")
+        else:
+            print("Example 6: Incorrect Solution")
+
 
