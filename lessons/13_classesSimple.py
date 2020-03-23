@@ -64,6 +64,8 @@ Remember that the class is the template that you will use to create objects in y
 
 
 class RenameMe:
+    # NOTE: when you are naming classes make sure to use the CamelCase convention
+    #       for this you basically capitalize the first letter of EachWord in TheClassName
     def __init__(self):
         None
 
