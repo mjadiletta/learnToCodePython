@@ -2,6 +2,7 @@ class classesComplexSolutions:
     def __init__(self):
         self.classesComplexSol = dict()
         self.classesComplexSol['example1'] = self.ex1
+        self.classesComplexSol['example2'] = self.ex2
 
     def ex1(self, b):
         if b.title == "Python Tutorials" and b.author == "Brian" \
@@ -66,3 +67,39 @@ class classesComplexSolutions:
         else:
             print("Example 1: Incorrect Solution")
             print("     Why did you change the tutorials object?")
+
+    def ex2(self, v, t, m):
+        flag = True
+
+        if not v.num_wheels == 5 or not v.num_passengers == 1:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the vehicle class.")
+
+        if not t.num_wheels == 4 or not t.num_passengers == 2:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the Truck class.")
+
+        if not t.bed_size == 20 or not t.cab_size == 10:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the Truck class.")
+
+        if not t.tow() == "Towing..." or not t.drive() == 23:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the Truck class.")
+
+        if not m.num_wheels == 3 or not m.num_passengers == 3 or not m.handlebar_type == "Cross" or not m.side_cab == True:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the MotorCycle class attributes.")
+
+        if not m.skid() == 123456 or not m.drive() == 56:
+            flag = False
+            print("Example 2: Incorrect Solution")
+            print("           Check your definition of the MotorCycle class methods.")
+
+        if flag:
+            print("Example 2: Correct Solution")
