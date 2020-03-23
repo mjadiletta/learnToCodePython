@@ -453,65 +453,25 @@ class AnimalInterface:
         raise NotImplementedError()
 
     def die(self):
-        raise NotImplementedError()
+        pass
 
     def eat(self, calories):
-        raise NotImplementedError()
+        pass
 
-
-class Monkey(AnimalInterface):
-    def __init__(self, type, weight=5):
-        self.type = type
-        self.weight = weight
-
-    def mate(self, animal2):
-        if self.type == animal2.type:
-            nt = self.type
-        else:
-            nt = self.type + animal2.type
-
-        return Monkey(nt)
-
-    def die(self):
-        self.type = ""
-        self.weight = 0
-
-    def eat(self, calories):
-        self.weight += calories/10
-
-
-class Horse(AnimalInterface):
-    def __init__(self, color, max_speed=5):
-        self.color = color
-        self.max_speed = max_speed
-
-    def mate(self, animal2):
-        if self.color == animal2.color:
-            co = self.color
-        else:
-            co = self.color + animal2.color
-            print(co)
-
-        return Horse(co, max_speed=((self.max_speed + animal2.max_speed)/2))
-
-    def die(self):
-        self.color = ""
-        self.max_speed = 0
-
-    def eat(self, calories):
-        self.max_speed += calories/50
+# I have given you the outline for the AnimalInterface above, however you must write the Monkey and Horse classes on
+# your own, Good Luck!
 
 
 # Testing your solution... uncomment each line of code to run the test
 
-m1 = Monkey(type="Ape", weight=500)
-m2 = Monkey(type="Ape", weight=200)
-m3 = Monkey(type="Chimp", weight=20)
+# m1 = Monkey(type="Ape", weight=500)
+# m2 = Monkey(type="Ape", weight=200)
+# m3 = Monkey(type="Chimp", weight=20)
 
-h1 = Horse(color="Red", max_speed=20)
-h2 = Horse(color="Brown", max_speed=15)
-h3 = Horse(color="Brown", max_speed=10)
+# h1 = Horse(color="Red", max_speed=20)
+# h2 = Horse(color="Brown", max_speed=15)
+# h3 = Horse(color="Brown", max_speed=10)
 
-checkSolutions["example3"](m1, m2, m3, h1, h2, h3)
+# checkSolutions["example3"](m1, m2, m3, h1, h2, h3)
 
 
