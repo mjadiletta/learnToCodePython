@@ -296,8 +296,7 @@ MotorCycle:
 class Vehicle:
 
     def __init__(self, num_wheels, num_passengers):
-        self.num_wheels = num_wheels
-        self.num_passengers = num_passengers
+        pass
 
     def drive(self):
         raise NotImplementedError()
@@ -307,30 +306,17 @@ class Truck(Vehicle):
     # default the value of num_wheels to 4 and num_passengers to 2
 
     def __init__(self, bed_size, cab_size, num_wheels=4, num_passengers=2):
-        Vehicle.__init__(self, num_wheels, num_passengers)
-        self.bed_size = bed_size
-        self.cab_size = cab_size
+        pass
 
     def tow(self):
         # make tow return "Towing..."
-        return "Towing..."
+        pass
 
     # overload the drive method here and make it return 23
     def drive(self):
-        return 23
+        pass
 
 
-class MotorCycle(Vehicle):
-    def __init__(self, num_wheels, num_passengers, handlebar_type, side_cab):
-        Vehicle.__init__(self, num_wheels=num_wheels, num_passengers=num_passengers)
-        self.handlebar_type = handlebar_type
-        self.side_cab = side_cab
-
-    def skid(self):
-        return 123456
-
-    def drive(self):
-        return 56
 # class MotorCycle
 # make the values of num_wheels and num_passengers inputs to __init__()
 # overload the drive method here and make it return 56
@@ -341,9 +327,9 @@ class MotorCycle(Vehicle):
 # Uncomment the lines of code below...
 # Make sure that the arguments to your methods are the same as those used in the lines of code below...
 
-v = Vehicle(num_wheels=5, num_passengers=1)
-t = Truck(bed_size=20, cab_size=10)
-m = MotorCycle(num_wheels=3, num_passengers=3, handlebar_type="Cross", side_cab=True)
-checkSolutions["example2"](v, t, m)
+# v = Vehicle(num_wheels=5, num_passengers=1)
+# t = Truck(bed_size=20, cab_size=10)
+# m = MotorCycle(num_wheels=3, num_passengers=3, handlebar_type="Cross", side_cab=True)
+# checkSolutions["example2"](v, t, m)
 
 
