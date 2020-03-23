@@ -3,6 +3,7 @@ class classesComplexSolutions:
         self.classesComplexSol = dict()
         self.classesComplexSol['example1'] = self.ex1
         self.classesComplexSol['example2'] = self.ex2
+        self.classesComplexSol['example3'] = self.ex3
 
     def ex1(self, b):
         if b.title == "Python Tutorials" and b.author == "Brian" \
@@ -103,3 +104,55 @@ class classesComplexSolutions:
 
         if flag:
             print("Example 2: Correct Solution")
+
+    def ex3(self, m1, m2, m3, h1, h2, h3):
+        flag = True
+        tm1 = m1.mate(animal2=m2)
+        tm2 = m2.mate(animal2=m3)
+        th1 = h1.mate(animal2=h2)
+        th2 = h2.mate(animal2=h3)
+
+        if not (tm1.type == "Ape" and tm1.weight == 5 and tm2.type == "ApeChimp" and tm2.weight == 5):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Monkey class (specifically the mate method)")
+
+        tm1.die()
+
+        if not (tm1.type == "" and tm1.weight == 0):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Monkey class (specifically the die method)")
+
+        tm2.eat(calories=100)
+
+        if not (tm2.type == "ApeChimp" and tm2.weight == 15):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Monkey class (specifically the eat method)")
+
+        if not (th1.color == "RedBrown" and th1.max_speed == ((h1.max_speed + h2.max_speed)/2) and
+                th2.color == "Brown" and th2.max_speed == ((h2.max_speed + h3.max_speed)/2)):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Horse class (specifically the mate method)")
+
+        th1.die()
+
+        if not (th1.color == "" and th1.max_speed == 0):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Horse class (specifically the die method)")
+
+        th2.eat(calories=100)
+
+        if not (th2.color == "Brown" and th2.max_speed == ((h2.max_speed + h3.max_speed)/2 + 2)):
+            flag = False
+            print("Example 3: Incorrect Solution")
+            print("     Check your implementation of the Horse class (specifically the eat method)")
+
+
+
+
+        if flag:
+            print("Example 3: Correct Solution")

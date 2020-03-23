@@ -333,3 +333,185 @@ class Truck(Vehicle):
 # checkSolutions["example2"](v, t, m)
 
 
+'''
+Example 3: Interfaces
+
+For this example we will briefly explain interfaces and why they are useful. However, you should know 
+that Python does not implement interfaces the same way that other OOP languages (e.g., Java) do. In 
+Python interfaces are implemented like a Base class, whereas in Java, interfaces are completely separate 
+from classes.
+
+What is an interface? An interface in basically a set of functions that are implemented by many different 
+classes, while keeping the naming the same. This provides a common way to access and process data from 
+different classes. 
+
+What does this mean? Basically, with an interface you can write code that does not depend on a specific 
+class to be used. Instead your code can be general, covering any class that implements the interface. This 
+is a way to generalize the type of variable you are working with. For example, if you want to run the 
+same three functions on different animals, you can create an animal interface. Any class that implements 
+the animal interface (e.g., monkey, horse, duck, etc.) will be treated the same way by your code. And 
+you won't have to account for some of the differences in how each subclass (e.g., monkey, horse, etc.) 
+is implemented, because the interface you are using to interact with the objects is the same for all of 
+the objects.
+
+How do I implement it? To implement it in Python you will create a Base class. This Base class will define 
+the interface methods that must be implemented by all of the classes that wish to implement this interface. 
+
+Let's do a basic example below, then you can create an animal interface based on the simple example!
+'''
+
+
+class Interface:
+    '''
+    NOTE: each of the methods in this interface have this "raise NotImplementedError()" in their function bodies
+          This is to ensure that any class that tries to extend/implement this interface has implemented all of
+          the functions, when a method from the interface is not implemented then the NotImplementedError will
+          occur when you try to run your code.
+
+    Side-note: Extend and implement may be used interchangeably in these tutorials, both of them basically mean that
+    whatever class you have created will need to implement all the methods defined in the interface.
+    '''
+    def interface_method_1(self, arg1, arg2):
+        raise NotImplementedError()
+
+    def interface_method_2(self, arg1, arg2):
+        raise NotImplementedError()
+
+
+class TestClass1(Interface):
+    def __init__(self, attr):
+        self.attr = attr
+
+    def interface_method_1(self, arg1, arg2):
+        return arg2 > self.attr > arg1
+
+    def interface_method_2(self, arg1, arg2):
+        return self.attr + arg1*arg2
+
+
+class TestClass2(Interface):
+    def __init__(self, attr2):
+        self.attr1 = 5
+        self.attr2 = attr2
+
+    def interface_method_1(self, arg1, arg2):
+        return self.attr1 * (self.attr2 + arg1 + arg2)
+
+    # Note that I did not implement interface_method_2 in this class - WHICH IS WRONG!
+
+
+# Now lets see what happens when we run these methods
+print("\n----- EXAMPLE 3 TESTING ------")
+# this is a completely useless statement because the interface is an outline for methods that your
+# class must implement, the interface does not actually implement any of these methods
+i = Interface()
+
+t = TestClass1(1)
+
+c = TestClass2(1)
+
+print(t.interface_method_1(0, 2))  # should print out True
+print(t.interface_method_2(1, 2))  # should print out 3
+print(c.interface_method_1(0, 2))  # should print out 15
+# print(c.interface_method_2(1, 2))  # should cause an Error (uncomment the code here)
+
+# Now you know what happens when you don't implement all the methods in an interface...
+#   SO, don't do that :)
+
+
+'''
+Now its your turn to create an animal interface below! Use the following specifications for the 
+interface and the subclasses that extend the interface...
+
+
+AnimalInterface:
+    - mate(animal2)
+    - die()
+    - eat(calories)
+    
+Monkey:
+    - type: string ("Ape", "Gorilla", "Chimp")
+    - weight: int
+    - mate should return a new Monkey object with a weight of 5 and a type that is equivalent to 
+      monkey1.type + monkey2.type (e.g., "ApeChimp", "Ape") if they are the same then you should 
+      not combine them, if they are different then you should combine them
+    - die should set type to "" and weight to 0 
+    - eat should add calories/10 to the weight of the monkey
+
+Horse:
+    - color: string ("Red", "Blue", "Brown", "Green")
+    - max_speed: int 
+    - mate should return a new Horse object with a max_speed of 5 and a color that is the combination
+      of its parents (e.g., "RedBlue", "Brown", "GreenBrown") do not include duplicates (e.g., "RedRed")
+    - die should set color to "" and max_speed to the average (int) of the two parents' max speeds
+    - eat should add calories/50 to max_speed
+'''
+
+
+class AnimalInterface:
+    def mate(self, animal2):
+        raise NotImplementedError()
+
+    def die(self):
+        raise NotImplementedError()
+
+    def eat(self, calories):
+        raise NotImplementedError()
+
+
+class Monkey(AnimalInterface):
+    def __init__(self, type, weight=5):
+        self.type = type
+        self.weight = weight
+
+    def mate(self, animal2):
+        if self.type == animal2.type:
+            nt = self.type
+        else:
+            nt = self.type + animal2.type
+
+        return Monkey(nt)
+
+    def die(self):
+        self.type = ""
+        self.weight = 0
+
+    def eat(self, calories):
+        self.weight += calories/10
+
+
+class Horse(AnimalInterface):
+    def __init__(self, color, max_speed=5):
+        self.color = color
+        self.max_speed = max_speed
+
+    def mate(self, animal2):
+        if self.color == animal2.color:
+            co = self.color
+        else:
+            co = self.color + animal2.color
+            print(co)
+
+        return Horse(co, max_speed=((self.max_speed + animal2.max_speed)/2))
+
+    def die(self):
+        self.color = ""
+        self.max_speed = 0
+
+    def eat(self, calories):
+        self.max_speed += calories/50
+
+
+# Testing your solution... uncomment each line of code to run the test
+
+m1 = Monkey(type="Ape", weight=500)
+m2 = Monkey(type="Ape", weight=200)
+m3 = Monkey(type="Chimp", weight=20)
+
+h1 = Horse(color="Red", max_speed=20)
+h2 = Horse(color="Brown", max_speed=15)
+h3 = Horse(color="Brown", max_speed=10)
+
+checkSolutions["example3"](m1, m2, m3, h1, h2, h3)
+
+
