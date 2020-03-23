@@ -61,12 +61,9 @@ Learning Objectives:
 use this website for help drawing objects: http://anh.cs.luc.edu/handsonPythonTutorial/graphics.html
 """
 
-
-import numpy as np
 from solutions.graphics import *
 from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().graphicsComplexSolutions
-
 
 
 '''
@@ -74,6 +71,9 @@ Example 1 and 2:
     Open each comment block one at a time and solve each problem sequentially
     The check solutions are below, do not edit those...
     Uncomment the check solutions as you go, and after solving the problem, comment it again. 
+    
+    You may want to copy the commented instructions into a separate text file 
+        to read them better while you're coding
 '''
 '''
 Example 1: 
@@ -111,7 +111,7 @@ Example 1:
             This will move each element of this object (dx, dy). 
             be sure to update self.x and self.y
         2. removeBlock()
-            This method will remove every element of the TetrisBlock from the screent. 
+            This method will remove every element of the TetrisBlock from the screen. 
                 Use graphics method: obj.undraw()
                 
         The check function for this example will create a TetrisBlock 
@@ -122,45 +122,25 @@ Example 1:
 class TetrisBlock():
     def __init__(self, win, x_topLeft, y_topLeft, blockColor):
         self.win = win
-        self.x = x_topLeft
-        self.y = y_topLeft
-        self.blockColor = blockColor
+        self.x = 0
+        self.y = 0
+        self.blockColor = None
 
+        # Example -> It will say Object 1 is wrong unless you fix self.x and self.y
         self.block = Rectangle(Point(self.x, self.y), Point(self.x+45, self.y+45))
         self.block.setFill(blockColor)
         self.block.draw(win)
 
-        self.blockInternal = Rectangle(Point(self.x+7, self.y+7), Point(self.x + 38, self.y + 38))
-        self.blockInternal.setFill(blockColor)
-        self.blockInternal.draw(win)
-
-        self.line1 = Line(Point(self.x, self.y), Point(self.x+7, self.y+7))
-        self.line2 = Line(Point(self.x + 45, self.y), Point(self.x + 38, self.y + 7))
-        self.line3 = Line(Point(self.x, self.y + 45), Point(self.x + 7, self.y + 38))
-        self.line4 = Line(Point(self.x + 45, self.y + 45), Point(self.x + 38, self.y + 38))
-
-        self.line1.draw(win)
-        self.line2.draw(win)
-        self.line3.draw(win)
-        self.line4.draw(win)
 
     def moveBlock(self, dx, dy):
-        self.x += dx
-        self.y += dy
+        self.x += 0
+        self.y += 0
         self.block.move(dx, dy)
-        self.blockInternal.move(dx, dy)
-        self.line1.move(dx, dy)
-        self.line2.move(dx, dy)
-        self.line3.move(dx, dy)
-        self.line4.move(dx, dy)
+        #...
 
     def removeBlock(self):
         self.block.undraw()
-        self.blockInternal.undraw()
-        self.line1.undraw()
-        self.line2.undraw()
-        self.line3.undraw()
-        self.line4.undraw()
+        #...
 
 '''
     Test TetrisBlock()
@@ -168,18 +148,10 @@ class TetrisBlock():
 '''
 def ex1(x, y, color):
     win = GraphWin("Tetris", 550, 700)
-
     tb = TetrisBlock(win, x, y, color)
+    return win.items, win
 
-    # Close window if the return/enter key is pressed
-    while True:
-        if win.checkKey() == "Return":
-            win.close()
-            break
-
-    return win.items
-
-#checkSolutions['example1'](ex1, 200, 200, "lightblue")
+checkSolutions['example1'](ex1, 200, 200, "lightblue")
 
 
 '''
@@ -188,23 +160,13 @@ def ex1(x, y, color):
 '''
 def ex2(x, y, color):
     win = GraphWin("Tetris", 550, 700)
-
     tb = TetrisBlock(win, x, y, color)
+
     for i in range(2000):
         tb.moveBlock(.1, .1)
-
     tb.removeBlock()
-
-    # Close window if the return/enter key is pressed
-    while True:
-        if win.checkKey() == "Return":
-            win.close()
-            break
-
-    return win.items, tb
-
+    return win.items, tb, win
 #checkSolutions['example2'](ex2, 200, 200, "lightblue")
-
 
 
 
@@ -213,6 +175,9 @@ Example 3 4 5 and 6:
     Open each comment block one at a time and solve each problem sequentially
     The check solutions are below, do not edit those...
     Uncomment the check solutions as you go, and after solving the problem, comment it again. 
+    
+    You may want to copy the commented instructions into a separate text file 
+        to read them better while you're coding
 '''
 '''
     Example 3: Construct the Game Board
@@ -361,88 +326,58 @@ class TetrisGame:
     def __init__(self, win):
         self.win = win
 
-        # Object 1
+        # Object 1 - Example
         self.gameBoarder = Rectangle(Point(47.5, 47.5), Point(802.5, 752.5))
         self.gameBoarder.setFill("black")
         self.gameBoarder.setOutline("dark slate blue")
         self.gameBoarder.setWidth(3)
         self.gameBoarder.draw(win)
 
-        # Object Set 1
-        for i in range(15):
-            for j in range(14):
-                TetrisBlock(win, i*50 + 52.5, j*50 + 52.5, "grey")
+        # Object Set 1 -> use 2 for loops with a Tetrus Block(win, x, y, "grey")
 
-        # Object 2
-        self.gameScreen = Rectangle(Point(97.5, 97.5), Point(552.5, 702.5))
-        self.gameScreen.setFill("lightblue")
-        self.gameScreen.setOutline("gray13")
-        self.gameScreen.setWidth(5)
-        self.gameScreen.draw(win)
+        # Object 2 - It probably says object 2 is correct
+        #   It's not if you haven't coded anything for set 2 below... sorry to hard to fix...
 
-        # Object Set 2
+        # Object Set 2 example:
         for i in range(8):
             vl = Line(Point(i*50 + 150, 100), Point(i*50 + 150, 700))
             vl.setFill("pale turquoise")
             vl.draw(win)
 
-        for i in range(11):
-            vl = Line(Point(100, i*50 + 150), Point(550, i*50 + 150))
-            vl.setFill("pale turquoise")
-            vl.draw(win)
+        # Do oppositely orientated lines here
 
         # Object 3
-        self.gameText = Rectangle(Point(575, 125), Point(775, 175))
-        self.gameText.setFill("lightblue")
-        self.gameText.setOutline("gray13")
-        self.gameText.setWidth(2)
-        self.gameText.draw(win)
 
         # Object 4
-        self.text = Text(Point(677.5, 150), "Tetris Game!")
-        self.text.setSize(18)
-        self.text.setStyle("bold")
-        self.text.setFace("courier")
-        self.text.draw(win)
 
         # Object 5
-        self.gameScore = Rectangle(Point(575, 225), Point(710, 265))
-        self.gameScore.setFill("lightblue")
-        self.gameScore.setOutline("gray13")
-        self.gameScore.setWidth(2)
-        self.gameScore.draw(win)
 
         # Object 6
-        self.score = Text(Point(630, 245), "Score: ")
-        self.score.setSize(14)
-        self.score.setStyle("bold")
-        self.score.setFace("courier")
-        self.score.draw(win)
 
-        # Example 5 Text Object
-        self.scoreVal = Text(Point(675, 245), "0")
-        self.scoreVal.setSize(14)
-        self.scoreVal.setStyle("bold")
-        self.scoreVal.setFace("courier")
-        self.scoreVal.draw(win)
-        self.scoreData = 0
+        ###################### Example 6 Text Object ###################################
+        self.scoreVal = Text(Point(0, 0), "")
+        #self.scoreVal.setSize()
+        #self.scoreVal.setStyle()
+        #self.scoreVal.setFace()
+        #self.scoreVal.draw()
+        self.scoreData = None
 
-        # Example 4
-        self.gameState = np.empty((12, 9), dtype=object)
+        ###################### Example 4 ###################################
+        self.gameState = None
         self.currentBlock = None
         self.currentBlockRow = None
         self.currentBlockColumn = None
 
     def newBlock(self):
-        self.gameState[0][4] = TetrisBlock(self.win, 302.5, 102.5, "orange")
-        self.currentBlock = self.gameState[0][4]
-        self.currentBlockRow = 0
-        self.currentBlockColumn = 4
+        self.gameState[0][4] = None
+        self.currentBlock = None
+        self.currentBlockRow = None
+        self.currentBlockColumn = None
 
     def UserMoveBlock(self):
-        while self.CheckTermination() == False:
+        while True:
             self.newBlock()
-            while self.CheckMoveDown() == True:
+            while True:
                 key = self.win.getKey()
                 if key == "Left":
                     if self.CheckMoveLeft():
@@ -450,25 +385,9 @@ class TetrisGame:
                         self.gameState[self.currentBlockRow][self.currentBlockColumn] = None
                         self.currentBlockColumn -= 1
                         self.gameState[self.currentBlockRow][self.currentBlockColumn] = self.currentBlock
-                if key == "Right":
-                    if self.CheckMoveRight():
-                        self.currentBlock.moveBlock(50, 0)
-                        self.gameState[self.currentBlockRow][self.currentBlockColumn] = None
-                        self.currentBlockColumn += 1
-                        self.gameState[self.currentBlockRow][self.currentBlockColumn] = self.currentBlock
-                if key == "Down":
-                    if self.CheckMoveDown():
-                        self.currentBlock.moveBlock(0, 50)
-                        self.gameState[self.currentBlockRow][self.currentBlockColumn] = None
-                        self.currentBlockRow += 1
-                        self.gameState[self.currentBlockRow][self.currentBlockColumn] = self.currentBlock
-                        self.UpdateScore(1)
-                if self.CheckRowFull():
-                    self.RemoveRow()
+                # Add Right and Down
 
-        print("Game Over! Press Enter to Exit")
-
-
+    # Example for you to follow for Right and Down
     def CheckMoveLeft(self):
         if self.currentBlockColumn == 0:
             return False
@@ -478,49 +397,23 @@ class TetrisGame:
             return True
 
     def CheckMoveRight(self):
-        if self.currentBlockColumn == 8:
-            return False
-        elif self.gameState[self.currentBlockRow][self.currentBlockColumn + 1] != None:
-            return False
-        else:
-            return True
+        None
 
     def CheckMoveDown(self):
-        if self.currentBlockRow == 11:
-            return False
-        elif self.gameState[self.currentBlockRow+1][self.currentBlockColumn] != None:
-            return False
-        else:
-            return True
+        None
 
     def CheckTermination(self):
-        for v in self.gameState[0]:
-            if v != None:
-                return True
-        return False
+        None
 
     def CheckRowFull(self):
-        for v in self.gameState[self.currentBlockRow]:
-            if v == None:
-                return False
-        return True
+        None
 
     def RemoveRow(self):
-        for i in range(len(self.gameState[self.currentBlockRow])):
-            self.gameState[self.currentBlockRow][i].removeBlock()
-            self.gameState[self.currentBlockRow][i] = None
-        for i in reversed(range(len(self.gameState))):
-            for tb in self.gameState[i]:
-                if tb != None:
-                    tb.moveBlock(0, 50)
-                    self.UpdateScore(1)
-            if i != 0:
-                self.gameState[i] = self.gameState[i-1]
-        self.UpdateScore(101)
+        None
 
     def UpdateScore(self, num_points):
-        self.scoreData += num_points
-        self.scoreVal.setText(str(self.scoreData))
+        self.scoreData += None
+        self.scoreVal.setText(None)
 
 
 
@@ -531,13 +424,7 @@ class TetrisGame:
 def ex3():
     win = GraphWin("Tetris", 850, 800)
     game = TetrisGame(win)
-
-    # Close window if the return/enter key is pressed
-    while True:
-        if win.checkKey() == "Return":
-            win.close()
-            break
-    return win.items
+    return win.items, game
 #checkSolutions['example3'](ex3)
 
 
@@ -548,15 +435,7 @@ def ex3():
 def ex4():
     win = GraphWin("Tetris", 850, 800)
     game = TetrisGame(win)
-    game.newBlock()
-
-    # Close window if the return/enter key is pressed
-    while True:
-        if win.checkKey() == "Return":
-            win.close()
-            break
     return game
-
 #checkSolutions['example4'](ex4)
 
 
@@ -578,14 +457,7 @@ def ex5():
 def ex6():
     win = GraphWin("Tetris", 850, 800)
     game = TetrisGame(win)
-    game.UserMoveBlock()
-
-    # Close window if the return/enter key is pressed
-    while True:
-        if win.checkKey() == "Return":
-            win.close()
-            break
     return game
 
-ex6()
+#checkSolutions['example6'](ex6, TetrisBlock)
 

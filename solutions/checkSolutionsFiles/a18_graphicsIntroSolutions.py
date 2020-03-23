@@ -1,4 +1,3 @@
-from solutions.graphics import *
 import numpy as np
 
 class graphicsIntroSolutions:
