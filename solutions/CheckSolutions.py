@@ -18,7 +18,6 @@ from solutions.checkSolutionsFiles.a4_project1Solution import project1Solutions
 from solutions.checkSolutionsFiles.a8_project2Solution import project2Solutions
 from solutions.checkSolutionsFiles.a12_project3Solution import project3Solutions
 from solutions.checkSolutionsFiles.a16_project4Solution import project4Solutions
-from solutions.checkSolutionsFiles.a20_project5Solution import project5Solutions
 
 
 class CheckSolutions:
