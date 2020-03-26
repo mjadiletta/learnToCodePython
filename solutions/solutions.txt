@@ -946,3 +946,119 @@ checkSolutions['example6'](ex6, TetrisBlock)
 
 
 ############################################################
+
+Coronavirus Simulator
+
+import numpy as np
+from solutions.graphics import *
+from solutions.CheckSolutions import CheckSolutions
+from solutions.CoronavirusPerson import Person
+import matplotlib.pyplot as plt
+checkSolutions = CheckSolutions().project5Solutions
+
+NUM_PEOPLE = 100
+
+LEFT = 50
+RIGHT = 800
+TOP = 50
+BOTTOM = 600
+
+PERSON_RADIUS = 6
+
+TIME_SICK = 500
+
+
+class Simulator:
+    def __init__(self, win):
+        self.win = win
+        self.sim_space = Rectangle(Point(LEFT, TOP), Point(RIGHT, BOTTOM))
+        self.sim_space.setFill("light cyan")
+        self.sim_space.draw(win)
+        self.people = list()
+        for i in range(NUM_PEOPLE):
+            no_position = True
+            while(no_position):
+                no_position = False
+                x = np.random.randint(LEFT + PERSON_RADIUS + 1, RIGHT - PERSON_RADIUS - 1)
+                y = np.random.randint(TOP + PERSON_RADIUS + 1, BOTTOM - PERSON_RADIUS - 1)
+                for p2 in self.people:
+                    mag = (p2.x - x) ** 2 + (p2.y - y) ** 2
+                    if mag <= (PERSON_RADIUS*2)**2:
+                        no_position = True
+
+            p = Person(win, x, y, PERSON_RADIUS)
+            self.people.append(p)
+
+    def movePeople(self):
+        RUN_LENGTH = 10000
+        virus_alive = True
+        counter = 0
+        num_healthy = np.array([None]*RUN_LENGTH)
+        num_sick = np.array([None]*RUN_LENGTH)
+        num_recovered = np.array([None]*RUN_LENGTH)
+        while virus_alive and counter < RUN_LENGTH:
+            healthy = 0
+            sick = 0
+            recovered = 0
+            virus_alive = False
+            for i, p in enumerate(self.people):
+                p.move()
+                if p.condition == "healthy":
+                    p.speed = 1
+                    healthy += 1
+                elif p.time_sick > TIME_SICK:
+                    p.condition = "recovered"
+                    recovered += 1
+                    p.speed = 1
+                    p.body.setFill("SteelBlue4")
+                else:
+                    p.speed = 1
+                    sick += 1
+                    p.time_sick += 1
+                    virus_alive = True
+
+                if p.y+PERSON_RADIUS >= BOTTOM:
+                    p.bounceWall(1, 0)
+                elif p.y-PERSON_RADIUS <= TOP:
+                    p.bounceWall(1, 0)
+                elif p.x-PERSON_RADIUS <= LEFT:
+                    p.bounceWall(0, 1)
+                elif p.x+PERSON_RADIUS >= RIGHT:
+                    p.bounceWall(0, 1)
+                elif i+1 < len(self.people):
+                    new_sick = p.bouncePeople(p, self.people[i+1:])
+                    if new_sick != None:
+                        if p.condition == "healthy" and new_sick.condition == "sick":
+                            p.body.setFill("firebrick3")
+                            p.time_sick = 0
+                            p.condition = "sick"
+                        if p.condition == "sick" and new_sick.condition == "healthy":
+                            new_sick.body.setFill("firebrick3")
+                            new_sick.time_sick = 0
+                            new_sick.condition = "sick"
+
+            num_healthy[counter] = healthy
+            num_sick[counter] = sick
+            num_recovered[counter] = recovered
+            counter += 1
+
+        ind = np.ndarray.tolist(num_healthy).index(None)
+        num_healthy = num_healthy[0:ind]
+        num_recovered = num_recovered[0:ind]
+        num_sick = num_sick[0:ind]
+
+        x = np.arange(len(num_healthy))
+
+        plt.title("Coronavirus Simulation Over Time")
+        plt.plot(x, num_healthy, color="thistle", label="Healthy")
+        plt.plot(x, num_sick, color="red", label="Sick")
+        plt.plot(x, num_recovered, color="steelblue", label="Recovered")
+        plt.legend()
+        plt.show()
+
+
+        while True:
+            if self.win.checkKey() == "Return":
+                self.win.close()
+                break
+
