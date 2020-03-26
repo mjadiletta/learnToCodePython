@@ -80,7 +80,4 @@ class CheckSolutions:
         # lecture 19
         self.graphicsComplexSolutions = graphicsComplexSolutions().graphicsComplexSolutions
 
-        # lecture 20: Project 5
-        self.project5Solutions = project5Solutions().projectSolutions
-
 
