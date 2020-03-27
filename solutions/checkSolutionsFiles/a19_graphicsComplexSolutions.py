@@ -1,5 +1,4 @@
 import numpy as np
-from solutions.graphics import *
 
 class graphicsComplexSolutions:
     def __init__(self):

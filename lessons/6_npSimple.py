@@ -401,8 +401,8 @@ checkSolutions['example19'](ex19, data_path)
 
 '''
 Example 20: 
-    Calculate the matrix product between the outer product (12x12) * inner_product (12x1) 
-        all scaled by the dot product. 
+    Calculate the matrix product (dot product) between the outer product (12x12) and inner_product (12x1) 
+        then scale all values by the dot product. 
         Calcluate the outer, inner, and dot products using the first 12 with the second 12
         datapoints. Use the functions from ex17, 18, 19. 
 '''

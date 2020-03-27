@@ -148,9 +148,9 @@ def visualize_testing():
 Part 3: 
     Now use the same process from parts 1 and 2 to create the band-pass filter. 
     We will use a new technique called a "lambda" function.
-    What's cool about a lambda function is that we intitially define the function using parameters,
+    What's cool about a lambda function is that we initially define the function using parameters,
     but then later calls can use new variables. Don't worry too much about this. 
-    The bandpass_filter is already define for you using your sigmoid function. 
+    The bandpass_filter is already defined for you using your sigmoid function. 
     All you need to do now is visualize the bandpass filter. 
     Follow the same procedure as part2 but for the bandpass_filter.
     
@@ -177,6 +177,13 @@ Part 3:
             4. graph start 
             5. graph end
             6. step_size
+        
+        Use a for loop to iterate over all the b values
+        create new bandpass_filter for each b, then run createXY_bpf with that configuration
+        append the x, y to all_XY
+        plot the x, y in the appropriate subplot
+            * Note might want to just use index of b_vals using: for i in range(len(b_vals)
+                so can use b_vals[i] and axes[i] concurrently
         
         return:
             a list of all [(xb1, yb1), (xb2, yb2), (xb3, yb3), (xb4, yb4), (xb5, yb5)] pairs

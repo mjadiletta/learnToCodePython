@@ -71,7 +71,7 @@ class dictionarySol:
             print("Example 3: Incorrect Solution")
 
     def ex4(self, f):
-        correct_sol = ["pencil", "pen", "eraser", "milk", "cheese", "steak", "pizza"]
+        correct_sol = ["pencil", "pen", "eraser", "milk", "cheese", "steak", "pizza", "potatoes"]
         if sorted(f()) == sorted(correct_sol):
             print("Example 4: Correct Solution")
         else:

@@ -70,8 +70,8 @@ checkSolutions['example3'](ex3, randInt(), randInt())
 
 '''
 Example 4: 
-    use a conditional if else statement to return the larger number between: 
-    (a^2 / 5) and (b^3 / 3)
+    use a conditional if else statement to return and return a if (a^2 / 5) greather than (b^3 / 3)
+    or return b if (b^3 / 3) > (a^2 / 5)
 '''
 def ex4(a, b):
     if None:

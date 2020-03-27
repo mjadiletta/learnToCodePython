@@ -109,6 +109,10 @@ Example 2:
         (look up with bins are from the documentation and try various bin sizes - kinda interesting) 
     Documentation for histogram: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
     
+    Be sure to add labels and titles to both the line plot and histogram graphs
+    
+    Check your solution with the figure in "solutions/7_matplotlibIntroducitonSolutionsImages/example2.png"
+    
     return (x_line_graph, y_line_graph, values_of_histogram_bins)
 '''
 def ex2(path):
@@ -133,7 +137,7 @@ def ex2(path):
     figure.tight_layout(pad=1.5)  # so there is spacing between the subplots
     #plt.show()
     plt.close()
-    return x_coordinates, y_coordinates, n
+    return None, None, None
 
 checkSolutions['example2'](ex2, data_path)
 
@@ -229,7 +233,7 @@ def ex4(path):
     x_coordinates_blue = None
     y_coordinates_blue = None
 
-    # initialize the figure with 3 rows and 1 column of subplots. Start with subplot 1
+    # initialize the figure with 1 row and 2 columns of subplots.
     figure, axes = plt.subplots(figsize=(10, 5), nrows=1, ncols=2)
     ax1 = axes[0]
     ax2 = axes[1]
