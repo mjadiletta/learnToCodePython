@@ -17,6 +17,8 @@ Learning Objectives:
 
 from abc import ABC, abstractmethod, abstractproperty
 from solutions.CheckSolutions import CheckSolutions
+import datetime
+from solutions.graphics import *
 checkSolutions = CheckSolutions().classesComplexSolutions
 
 '''
@@ -135,6 +137,9 @@ class Chapter:
     runs your code for you) to just "pass" this class or function because it doesn't do
     anything. So in here we use them as placeholders. You should delete the pass statement and
     write your own definition of the class.
+
+    NOTE: make sure you define the title attribute and the get_first_page method because those
+          are both used in the gen_toc method of the Book class
     '''
     pass
 
@@ -346,16 +351,17 @@ classes, while keeping the naming the same. This provides a common way to access
 different classes. 
 
 What does this mean? Basically, with an interface you can write code that does not depend on a specific 
-class to be used. Instead your code can be general, covering any class that implements the interface. This 
+class to be used. Instead your code can be general, covering any class that extends the interface. This 
 is a way to generalize the type of variable you are working with. For example, if you want to run the 
-same three functions on different animals, you can create an animal interface. Any class that implements 
+same three functions on different animals, you can create an animal interface. Any class that extends 
 the animal interface (e.g., monkey, horse, duck, etc.) will be treated the same way by your code. And 
 you won't have to account for some of the differences in how each subclass (e.g., monkey, horse, etc.) 
 is implemented, because the interface you are using to interact with the objects is the same for all of 
 the objects.
 
-How do I implement it? To implement it in Python you will create a Base class. This Base class will define 
-the interface methods that must be implemented by all of the classes that wish to implement this interface. 
+How do I create an interface and extend it? To create an interface in Python you will create a Base class. This Base 
+class will define the interface methods that must be implemented by all of the classes that wish to extend 
+this interface. 
 
 Let's do a basic example below, then you can create an animal interface based on the simple example!
 '''
@@ -475,3 +481,154 @@ class AnimalInterface:
 # checkSolutions["example3"](m1, m2, m3, h1, h2, h3)
 
 
+
+'''
+Example 4: Bring it all together (with a little polymorphism)
+
+For this example we will review what we have learned for OOP so far and briefly discuss polymorphism, so that if
+someone asks you what it is, you can give them a quick correct answer. Polymorphism probably won't be very useful 
+for you right now, so we won't spend too much time on it.
+
+Review of Object Oriented Programming (OOP):
+
+    What is OOP?
+        OOP is a programming paradigm in which data and code are 
+        organized into classes and used in the form of objects.
+        
+    What is a class?
+        A class is an outline/template of a object that includes 
+        attributes (data) and methods (code).
+        
+    What is an object?
+        An object is an instance of a class.
+        
+    What is an attribute?
+        An attribute is a piece of data associated with an object. 
+        This data is instantiated in the class's constructor method 
+        (mostly).
+        
+    What is a method?
+        A method is a block of code (function) that is defined in an 
+        object's class and may be executed on any object of that class.
+        
+    How do I make an object?
+        First you need to define the template (class) for that object. 
+        Make sure you have defined a constructor method! Then you 
+        can create an object by calling the class constructor like so...
+        MyNewClass(attr1=1, attr2=2)
+        
+    How do I call/invoke methods on an object?
+        Assume you have an object stored in the "var1" variable. And also 
+        assume that you have defined a method called "m1(in1, in2)" in the 
+        object's class. To call the method on the object, simply us a "."
+        var1.m1(in1=2, in2=3)
+        
+
+Now, what is polymorphism?
+    Basically it means having the same function signature (the name of your 
+    function), but having different implementations of that function, potentially 
+    for different types (e.g., different classes, int, String, char, byte, etc.)
+    
+What are the uses of polymorphism?
+    If you are really interested then visit this link: https://stackify.com/oop-concept-polymorphism/
+    That article has a pretty good explanation of polymorphism, using Java for examples.
+    
+    You can think of polymorphism in the same way we defined an interface, with fewer restrictions.
+    Writing polymorphic code for two classes (e.g., implementing a method with the same signature (name) 
+    for both classes) does not require the use of an interface. You could simply write a method with 
+    the same name in each class and that would be polymorphic. However, if you are trying to generalize 
+    the type for these two classes, then you SHOULD use an interface or super/abstract class. This will 
+    force you to implement all the necessary methods, whereas, just trying to remember to write the correct 
+    methods is not very effective and is error prone. 
+    
+    Another interesting use of polymorphism is defining the same method multiple times for a class. 
+    This is most useful in Java because you need to define the type of data that the method will 
+    return. In Python, you don't need to define the type of output data, and you can also define 
+    optional input arguments quite easily. Python also does NOT allow you to define a method twice 
+    for a class, so this use case isn't very useful in Python. 
+    
+    Overall, you can probably just stick to interfaces and super classes and you should be all set.
+    
+
+For this example you should pick an interesting application of OOP and write a few classes for it. 
+By that I mean, pick a topic like a family tree and create the appropriate classes to define a family 
+tree. I will include an example definition of a family tree below, which will be used in Project 4.   
+
+Feel free to edit the code below :) or write your own new code! Just play around with it
+'''
+
+
+class Person:
+    def __init__(self, first_name, middle_name, last_name, birth_year, gender, mother=None, father=None):
+        """
+        Person: a person with a linked mother and father
+        :param first_name: the name of this Person
+        :param middle_name: the middle name of this person
+        :param last_name: the last name of this person
+        :param birth_year: the year this Person was born
+        :param gender: the gender of this Person (0 = MALE, 1 = FEMALE)
+        :param mother: the mother of this Person (must also be a Person)
+        :param father: the father of this Person (must also be a Person)
+        """
+
+        self.fname = first_name
+        self.mname = middle_name
+        self.lname = last_name
+        self.dob = birth_year
+        self.dod = None
+        self.gender = gender
+
+        if isinstance(mother, Person):
+            self.mother = mother
+        else:
+            self.mother = None
+
+        if isinstance(father, Person):
+            self.father = father
+        else:
+            self.father = None
+
+    def die(self, year=None):
+        if not year:
+            year = datetime.datetime.now().year
+        self.dod = year
+
+    def generate_family_tree(self ):
+        if self.mother is not None:
+            self.mother.generate_family_tree()
+        if self.father is not None:
+            self.father.generate_family_tree()
+
+        self.generate_tag()
+
+    def generate_tag(self):
+        if self.mother is not None or self.father is not None:
+            print("             |            ")
+            print("             |            ")
+        print(self.fname + " " + self.lname)
+
+    def add_mom(self, person):
+        if isinstance(person, Person):
+            self.mother = person
+
+    def add_dad(self, person):
+        if isinstance(person, Person):
+            self.father = person
+
+
+me = Person("Brian", None, "Finnegan", 1995, 0)
+wifey = Person("Angela", None, "Hart", 1995, 1)
+
+kid1 = Person("Jamal", None, "Finnegan", 2015, 0, father=me, mother=wifey)
+
+kid1wife = Person("Jamie", None, "Norvig", 2017, 1)
+vikki = Person("Vikki", None, "Pearson", 1990, 1)
+jordan = Person("Jordan", None, "Norvig", 1992, 0)
+
+kid1wife.add_dad(jordan)
+kid1wife.add_mom(vikki)
+
+gkid = Person("Toni", None, "Finnegan", 2030, 1, mother=kid1wife, father=kid1)
+
+
+gkid.generate_family_tree()

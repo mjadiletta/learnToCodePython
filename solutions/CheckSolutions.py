@@ -9,7 +9,7 @@ from solutions.checkSolutionsFiles.a10_listsComplexSolutions import listComplexS
 from solutions.checkSolutionsFiles.a11_numpyComplexSolutions import numpyComplexSolutions
 from solutions.checkSolutionsFiles.a13_classesSimpleSolutions import classesSimpleSolutions
 from solutions.checkSolutionsFiles.a14_classesComplexSolutions import classesComplexSolutions
-from solutions.checkSolutionsFiles.a15_fileSeparationSolutions import fileSeparationSolutions
+from solutions.checkSolutionsFiles.a15_searchingSortingSolutions import searchingSortingSolutions
 from solutions.checkSolutionsFiles.a17_fileIOSolutions import fileIOSolutions
 from solutions.checkSolutionsFiles.a18_graphicsIntroSolutions import graphicsIntroSolutions
 from solutions.checkSolutionsFiles.a19_graphicsComplexSolutions import graphicsComplexSolutions
@@ -66,7 +66,7 @@ class CheckSolutions:
         self.classesComplexSolutions = classesComplexSolutions().classesComplexSol
 
         # lecture 15
-        self.fileSeparationSolutions = fileSeparationSolutions().fileSeparationSol
+        self.searchingSortingSolutions = searchingSortingSolutions().searchingSortingSol
 
         # lecture 16: Project 4
         self.project4Solutions = project4Solutions().projectSolutions
