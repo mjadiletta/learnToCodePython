@@ -75,7 +75,7 @@ class Node:
         self.left_child = None
 
     def add_child(self, value):
-        if value >= self.value:
+        if value > self.value:
             if self.right_child is None:
                 self.right_child = Node(value)
                 return self.right_child
@@ -86,40 +86,234 @@ class Node:
                 self.left_child = Node(value)
                 return self.left_child
             else:
-                return self.right_child.add_child(value)
+                return self.left_child.add_child(value)
 
 
-# we want a tree with the following numbers: 5, 23, 54, 63, 22, 17, 89, 100, 90, 3, 1 added to it
+# we want a tree with the following numbers: 1, 40, 60, 90, 35, 65, 80 added to it
 # I will start you off with the root node and one child node
 # It is your job to add the rest of the nodes to the tree
 
 root = Node(50)
 root.add_child(25)
+root.add_child(75)
 
 # SOLUTION BEGIN - DELETE
-root.add_child(5)
-root.add_child(23)
-root.add_child(54)
-root.add_child(63)
-root.add_child(22)
-root.add_child(17)
-root.add_child(89)
-root.add_child(100)
-root.add_child(90)
-root.add_child(3)
 root.add_child(1)
+root.add_child(40)
+root.add_child(60)
+root.add_child(90)
+root.add_child(35)
+root.add_child(65)
+root.add_child(80)
 # SOLUTION END - DELETE
+checkSolutions["example1"](root)
+
+
+'''
+Example 2: BST Insert
+
+Now that you have created a BST, lets develop the insert algorithm for it!
+
+First, lets create a new node class from scratch...
+
+    1. Lets call this class BSTNode
+    2. You can basically copy the constructor from the Node class above
+    3. Now, lets write our own add_child method, however, this one should be called "insert" NOT "add_child"
+        a. name of method: insert
+        b. parameters/arguments to the method: value (an integer)
+        c. now we have to think about where in the tree to add this new value
+           
+           Remember how the BST is organized and hopefully this will be pretty straight forward.
+           1. Check if the value input to this method is greater than the current node's value
+           2. If the input value is greater: check if the current node has a right_child 
+                If it DOES have a child to the right then simply call the "insert" method on that child
+                If it DOES NOT have a child to the right then create a new BSTNode and set right_child equal to it
+           3. If the input value is less than or equal to (else): check if the current node has a left_child
+                If it DOES have a child to the left then simply call the "insert" method on that child
+                If it DOES NOT have a child to the left then create a new BSTNode and set left_child equal to it
+                
+        NOTE: the best way to understand this is to visualize it so I have included a link to a YouTube video below 
+            https://www.youtube.com/watch?v=cv_KDQzZpHs
+            start video at: 58 seconds   end video at: 1 minute 59 seconds
+            
+            I have also included a step by step example below, but I recommend you watch the 1 minute clip on YouTube
+            
+            
+            Building a BST Example:
+            
+             _________________________________________________________________________________________________________
+            |     OPERATION       |          UPDATED BINARY SEARCH TREE        |                 NOTES                |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                                            | You always start with nothing        |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            | Insert(5)           |                      5                     | 5 is now your root node              |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            | Insert(2)           |                     /                      | to see if 2 is less than or greater  |
+            |                     |                    2                       | than 5, 2 < 5, so add it to the left |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            | Insert(8)           |                     / \                    | to see if 8 < 5 or if 8 > 5, 8 > 5,  |
+            |                     |                    2   8                   | so we add it to the right of 5       |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                     / \                    | to see if 6 < 5 or if 6 > 5, 6 > 5,  |
+            | Insert(6)           |                    2   8                   | so we add it to the right of 5, but  |
+            |                     |                       /                    | 8 is already to the right of 5, so   |
+            |                     |                      6                     | we check if 6 < 8 or 6 > 8, 6 < 8 so |
+            |                     |                                            | we add 6 to the left of 8            |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                   /     \                  | to see if 1 < 5 or if 1 > 5, 1 < 5,  |
+            | Insert(1)           |                  2       8                 | so we add it to the left of 5, but   |
+            |                     |                 /       /                  | 2 is already to the left of 5, so    |
+            |                     |                1       6                   | we check if 1 < 2 or 1 > 2, 1 < 2 so |
+            |                     |                                            | we add 1 to the left of 2            |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                   /     \                  | to see if 3 < 5 or if 3 > 5, 3 < 5,  |
+            | Insert(3)           |                  2       8                 | so we add it to the left of 5, but   |
+            |                     |                 / \     /                  | 2 is already to the left of 5, so    |
+            |                     |                1   3   6                   | we check if 3 < 2 or 3 > 2, 3 > 2 so |
+            |                     |                                            | we add 3 to the right of 2           |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                   /     \                  | to see if 7 < 5 or if 7 > 5, 7 > 5,  |
+            |                     |                  2       8                 | so we add it to the right of 5, but  |
+            |                     |                 / \     /                  | 8 is already to the right of 5, so   |
+            | Insert(7)           |                1   3   6                   | we check if 7 < 8 or 7 > 8, 7 < 8 so |
+            |                     |                         \                  | we add 7 to the left of 8, but 6 is  |
+            |                     |                          7                 | already there, so we check if 7 < 6  |
+            |                     |                                            | or 7 > 6, 7 > 6 so we add it to the  |
+            |                     |                                            | right of 6                           |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                   /     \                  | to see if 9 < 5 or if 9 > 5, 9 > 5,  |
+            |                     |                  2       8                 | so we add it to the right of 5, but  |
+            | Insert(9)           |                 / \     / \                | 8 is already to the right of 5, so   |
+            |                     |                1   3   6   9               | we check if 9 < 8 or 9 > 8, 9 > 8 so |
+            |                     |                         \                  | we add 9 to the right of 8           |
+            |                     |                          7                 |                                      |
+            |---------------------+--------------------------------------------+--------------------------------------|
+            |                     |                      5                     | Starting at our root node, we check  |
+            |                     |                   /     \                  | to see if 4 < 5 or if 4 > 5, 4 < 5,  |
+            |                     |                  2       8                 | so we add it to the left of 5, but   |
+            |                     |                 / \     / \                | 2 is already to the left of 5, so    |
+            | Insert(4)           |                1   3   6   9               | we check if 4 < 2 or 4 > 2, 4 > 2 so |
+            |                     |                     \   \                  | we add 4 to the right of 2, but 3 is |
+            |                     |                      4   7                 | already there, so we check if 4 < 3  |
+            |                     |                                            | or 4 > 3, 4 > 3 so we add it to the  |
+            |                     |                                            | right of 3                           |
+            |_____________________|____________________________________________|______________________________________|
+            
+
+Hopefully after reading all of that you can identify repeated operations when you are trying to insert a number into 
+a BST. Now you should implement the BSTNode class below!
+'''
+
+
+'''
+Example 2.1: Recursion - Fibonacci
+
+Just a side note... recursion is normally used to implement the insert function for a BST. Recursion is a tricky topic 
+to understand at first but after seeing some examples you will understand. First we will look at the Fibonacci seq.
+'''
+
+
+def fib(n):
+    if n == 0:  # BASE CASE 1
+        return 0
+    elif n == 1:  # BASE CASE 2
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)  # RECURSIVE STEP
+
+
+print("     Ex 2.1: The 5th number in the Fibonacci sequence is {}".format(fib(5)))
+print("     Ex 2.1: The 10th number in the Fibonacci sequence is {}".format(fib(10)))
+print("     Ex 2.1: The 20th number in the Fibonacci sequence is {}".format(fib(20)))
 
 
 
 '''
-Example 2: BST Search
+Example 2.2: Recursion - Reverse a String
 
-Now that you have created a BST, lets develop the search algorithm for it!
+Another example would be to reverse a string. The base case for string reversal would be 
+when you reach the end of the input string.
+'''
+
+
+def reverse(s, i):
+    if i == len(s) - 1:
+        return s[i]
+    else:
+        return reverse(s, i+1) + s[i]
+
+
+print("     Ex 2.2: The string 'abcdef' reversed is '{}'".format(reverse("abcdef", 0)))
+print("     Ex 2.2: The string 'I like to run.' reversed is '{}'".format(reverse("I like to run.", 0)))
+print("     Ex 2.2: The string 'MATTHEW' reversed is '{}'".format(reverse("MATTHEW", 0)))
 
 
 '''
+Example 2.3: Recursion - Your Turn
 
-class Node:
-    def __init__(self):
+Hopefully by now you understand that recursion involves a function calling 
+itself in its own code (recursive step) and a specific case to stop recursing 
+(base case).
+
+Now you should try to write a recursive function for practice!
+
+Define the factorial function using recursion.
+    Example(s):
+    
+        | input | operation         | output |
+        |-------+-------------------+--------|
+        | 5     | 5 * 4 * 3 * 2 * 1 | 120    |
+        | 4     | 4 * 3 * 2 * 1     | 24     |
+        | 3     | 3 * 2 * 1         | 6      |
+        | 2     | 2 * 1             | 2      |
+        | 1     | 1                 | 1      |
+        | 0     | 1                 | 1      |
+'''
+
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+checkSolutions["example2.3"](factorial)
+
+'''
+Now lets get back to the original exercise. Now that you know what recursion is and how the insert 
+operation works for a BST, implement the BSTNode class below!
+'''
+
+
+class BSTNode:
+    def __init__(self, value):
+        self.value = value
+        self.right_child = None
+        self.left_child = None
+
+    def insert(self, value):
+        if value > self.value:
+            if self.right_child is None:
+                self.right_child = BSTNode(value)
+                return self.right_child
+            else:
+                return self.right_child.insert(value)
+        else:
+            if self.left_child is None:
+                self.left_child = BSTNode(value)
+                return self.left_child
+            else:
+                return self.left_child.insert(value)
+
+
+checkSolutions["example2"](BSTNode)
+
 
