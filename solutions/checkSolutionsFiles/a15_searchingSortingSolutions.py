@@ -4,6 +4,7 @@ class searchingSortingSolutions:
         self.searchingSortingSol['example1'] = self.ex1
         self.searchingSortingSol['example2.3'] = self.ex2_3
         self.searchingSortingSol['example2'] = self.ex2
+        self.searchingSortingSol['example3'] = self.ex3
 
     def ex1(self, n):
         correct = True
@@ -101,4 +102,21 @@ class searchingSortingSolutions:
         else:
             print("Example 2: Incorrect Solution")
 
+    def ex3(self, n):
+        root = n(23)
+        root.insert(4)
+        root.insert(44)
+        root.insert(2)
+        root.insert(23)
+        root.insert(42)
+        root.insert(43)
+        correct = root.search(2)
+        correct = correct and root.search(42)
+        correct = correct and root.search(43)
+        correct = correct and not root.search(100)
+        correct = correct and not root.search(3)
 
+        if correct:
+            print("Example 3: Correct Solution")
+        else:
+            print("Example 3: Incorrect Solution")

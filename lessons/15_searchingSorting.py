@@ -317,3 +317,68 @@ class BSTNode:
 checkSolutions["example2"](BSTNode)
 
 
+'''
+Example 3: BST Search
+
+Now lets implement the search method for our BST! 
+
+The search method is very similar to the insert method. Basically you act like 
+you are going to insert a new node, but you check if the current node is equal 
+to the input value before you recurse. Ill add some sudo code below to help you out.
+
+Definitions:
+    current node: S
+    right child: r
+    left child: l
+    value: v
+
+SEARCH(n)
+    if S.v equals n, then return True
+    else if S.v is greater than n, then
+        if S.l exists, then S.l.SEARCH(n)
+        else return False
+    else if S.v is less than n, then
+        if S.r exists, then S.r.SEARCH(n)
+        else return False
+'''
+
+
+class BNode:
+    def __init__(self, value):
+        # pass  # copy your code from the BSTNode class
+        self.value = value
+        self.right_child = None
+        self.left_child = None
+
+    def insert(self, value):
+        # pass  # copy your code from the BSTNode class
+        if value > self.value:
+            if self.right_child is None:
+                self.right_child = BNode(value)
+                return self.right_child
+            else:
+                return self.right_child.insert(value)
+        else:
+            if self.left_child is None:
+                self.left_child = BNode(value)
+                return self.left_child
+            else:
+                return self.left_child.insert(value)
+
+    def search(self, value):
+        # pass  # implement your search method here
+        if value == self.value:
+            return True
+        elif value > self.value:
+            if self.right_child is None:
+                return False
+            else:
+                return self.right_child.search(value)
+        else:
+            if self.left_child is None:
+                return False
+            else:
+                return self.left_child.search(value)
+
+
+checkSolutions["example3"](BNode)
