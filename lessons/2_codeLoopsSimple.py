@@ -69,7 +69,7 @@ checkSolutions['example3'](ex3)
 
 '''
 Example 4: 
-    Code a for loop that finds the sum of 0 - 6
+    Code a for loop that finds the sum of 0 - 5 inclusive
     Then return the sum.
 '''
 def ex4():

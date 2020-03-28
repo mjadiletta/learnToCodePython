@@ -38,7 +38,7 @@ def project_1(f, input_val, terminal_val):
     while None:
         None
         None
-    return num_loops
+    return None
 
 print(project_1(f, 5, 10))
 checkSolutions['project1'](project_1, f, 0, 15)
