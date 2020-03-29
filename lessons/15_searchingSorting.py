@@ -1,6 +1,6 @@
 """
 Practice Group 15: File Organization and Separation
-Created: 3/__/2020
+Created: 3/28/2020
 
 In this tutorial we will cover a common use of OOP to create a "graph."
 
@@ -9,20 +9,18 @@ considered graphs in computer science. A graph is basically a collection
 of nodes and edges. Nodes hold data and edges are the connections or paths
 between nodes. OOP is a great way to implement different data structures,
 including graphs. In this lecture you will be implementing a binary search
-tree, a linked list, and a heap. This will give you a TON of practice
+tree and learning about its effectiveness. This will give you a TON of practice
 applying the OOP techniques you have learned, while also learning some new
 sorting and searching algorithms and data structures.
 
 Learning Objectives:
     1. Create a binary search tree using the node class
-    2. Use the binary search tree and learn about its effectiveness
-    3. Create a linked list and test some of your list sorting algorithms
-    4. Create a heap
-    5. Implement heap sort
-
+    2. Develop the BST insert algorithm
+    3. Develop the BST search algorithm
+    4. Big-O and the Effectiveness of BSTs
+    5. What's the point?
 """
 
-import numpy as np
 from solutions.CheckSolutions import CheckSolutions
 checkSolutions = CheckSolutions().searchingSortingSolutions
 
@@ -382,3 +380,208 @@ class BNode:
 
 
 checkSolutions["example3"](BNode)
+
+
+'''
+Example 4: Effectiveness of BSTs
+
+To measure the effectiveness of BSTs we will look at the time it takes to search them. 
+
+Specifically we will be looking at the worst case time relative to the number of nodes visited 
+during a search - this is also called Big O notation, written as O([some function of n here]).
+
+For example, a simple search through a list would have O(n) time because in the worst case the 
+number you are looking for does not exist in the list and you must check all n numbers in your 
+list before you realize that. Therefore, the upper-bound for this simple search function would be 
+n - we right this as O(n).
+'''
+
+
+'''
+Example 4.1: Big O simple search
+
+In this example we will show an example of simple search and demonstrate the worst case.
+'''
+
+
+def simple_search(list_in, search_int):
+    counter = 0
+    for element in list_in:
+        counter += 1
+        if element == search_int:
+            return True, counter
+    return False, counter
+
+
+a = list()
+a.append([0 for x in range(10)])
+a.append([0 for x in range(15)])
+a.append([0 for x in range(38)])
+a.append([0 for x in range(45)])
+a.append([0 for x in range(54)])
+a.append([0 for x in range(63)])
+a.append([0 for x in range(72)])
+a.append([0 for x in range(87)])
+a.append([0 for x in range(99)])
+
+print("     List # | Big-O | List Length (N) | Iterations | Found?")
+print("     -------+-------+-----------------+------------+-------")
+for idx, el in enumerate(a):
+    found, iterations = simple_search(el, 1)
+    print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
+          .format(idx, "O(N)", len(el), iterations, str(found)))
+
+
+# Run the code and notice that the number of iterations is always equal to
+#   the length of the list input to the search function... this means that
+#   this function is of O(N) time complexity
+
+
+'''
+Now lets test our binary search method and see if we get the same numbers.
+
+For this example, use the predefined BST class below.
+'''
+
+
+class BST:
+    def __init__(self, value, in_arr=None):
+        self.value = value
+        self.r = None
+        self.l = None
+        if in_arr:
+            for i in in_arr:
+                self.insert(i)
+
+    def insert(self, v):
+        if v > self.value:
+            if self.r is not None:
+                self.r.insert(v)
+            else:
+                self.r = BST(v)
+        else:
+            if self.l is not None:
+                self.l.insert(v)
+            else:
+                self.l = BST(v)
+
+    def search(self, v):
+        counter = 1
+        if v == self.value:
+            return True, counter
+        elif v > self.value:
+            if self.r:
+                flag, c = self.r.search(v)
+                return flag, counter + c
+            else:
+                return False, counter
+        else:
+            if self.l:
+                flag, c = self.l.search(v)
+                return flag, counter + c
+            else:
+                return False, counter
+
+
+# generating some lists to convert to BSTs
+a = list()
+k = 10
+a.append([k/2 + x*(-1)**(x % 2) for x in range(k)])
+k = 15
+a.append([k + x*(-1)**(x % 2) for x in range(k)])
+k = 38
+a.append([k/2 + x*(-1)**(x % 2) for x in range(k)])
+k = 45
+a.append([k + x*(-1)**(x % 2) for x in range(k)])
+k = 54
+a.append([k/2 + x*(-1)**(x % 2) for x in range(k)])
+k = 63
+a.append([k + x*(-1)**(x % 2) for x in range(k)])
+k = 72
+a.append([k/2 + x*(-1)**(x % 2) for x in range(k)])
+k = 87
+a.append([k + x*(-1)**(x % 2) for x in range(k)])
+k = 99
+a.append([k/2 + x*(-1)**(x % 2) for x in range(k)])
+
+b = list()
+for el in a:
+    b.append((BST(el[0], el), len(el)))
+
+print("\n\n      BST # | Big-O | BST Size (N)    | Iterations | Found?")
+print("     -------+-------+-----------------+------------+-------")
+for idx, el in enumerate(b):
+    found, iterations = el[0].search(10000000000)
+    print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
+          .format(idx, "O(?)", el[1], iterations, str(found)))
+
+# Uncomment the code above and run it...
+# You should see that the number of iterations is consistently less than N
+#   (the number of nodes in the BST) and that the number is never found
+
+'''
+Well, that did not help us figure out what the time complexity (O(?)) is for our 
+BST search method... However, we do know that it probably isn't O(N)...
+
+So we need to think about this a little bit differently.
+
+Remember how our searching algorithm works? Each time we visit a node we ask a 
+question: is the value we are searching for bigger than or smaller than this node's 
+value? The answer to this question determines the direction that we continue 
+searching in the BST (right or left). 
+
+So, as I said in the first example, a binary search tree is a data structure that 
+allows us to reduce the search space by half after each node we visit. We are able 
+to reduce the search space by half because of the question we ask when we visit 
+that node (see prev. paragraph). We make this binary BEFORE we visit any more nodes, 
+so by doing so we no longer have to look at half of the nodes. An example may be 
+easier to understand...
+
+                        a
+                       / \
+                      b   c
+
+Consider that we are at node a in the tree above and we are searching for "c" using 
+alphabetical order to give value to the letters (a=1, b=2, c=3, ... , z=26). So while 
+we are at node a there are 2 nodes left to possibly visit. Before visiting either node 
+we check to see if a > c or if a < c. After we do this we only ever visit one of the 
+two remaining nodes. So each time we make this decision it reduces our search space by 
+half. You could also consider it divides by 2 each time. 
+
+So if we start with N nodes then each time we visit a node we are dividing by 2, 
+in other words --> ((((N/2)/2)/2)/...)/2 = N/(2^k) where k is the number of nodes 
+we visit. SO the time complexity, or the worst case number of iterations, for the 
+BST search would be log(N)  (in computer science we assume logs to be base 2).
+
+So BST search would be O(log N) which is BETTER than O(N). These may also be called 
+log time and linear time. There are a few more common time complexities, but you can 
+always google them if you need to know.
+'''
+
+
+'''
+So that was a lot of information that may not seem super useful, however, all of it 
+will hopefully help you in some way while you are programming. 
+
+When you are writing or debugging a program, one of the things you will need to 
+consider is the speed of your program, especially if you are handling large amounts of 
+data. When you do this you may need to examine how that data is stored.
+
+There are many different ways to store data (Google "data structures"), we have introduced
+a few in this lecture series including lists and binary search trees. Each have their own
+advantages and disadvantages. Now you have some experience with these, so you will 
+hopefully be able to make informed decisions about, at the very least, what to research 
+and test. 
+
+When you choose an algorithm, check to see if speed is a concern or if memory is a concern 
+and choose an algorithm (e.g., search algorithm) that best suites your needs. You can pretty 
+much find all of this information on the internet (Stack overflow is your friend). So 
+knowing it off the top of your head is pretty much useless, however understanding basically 
+what a graph is and what Big-O notation is and how to implement a data structure using 
+classes is extremely important.
+
+Regardless of your application this basic programming knowledge will be incredibly important 
+for you to have. If you have any questions about this or want to learn more, feel free to 
+reach out to us or you can always use the vast resources available online to learn some more 
+or get some more practice. 
+'''
