@@ -86,11 +86,12 @@ class Node:
             else:
                 return self.left_child.add_child(value)
 
-
-# we want a tree with the following numbers: 1, 40, 60, 90, 35, 65, 80 added to it
-# I will start you off with the root node and one child node
-# It is your job to add the rest of the nodes to the tree
-
+'''
+Example 1: Build a tree
+    The current tree is only has 3 numbers: 50, 25, 75.
+    We want to add to the tree the following numbers: 1, 40, 60, 90, 35, 65, 80 added to it
+    It is your job to add the rest of the nodes to the tree using the class above / method started below
+'''
 root = Node(50)
 root.add_child(25)
 root.add_child(75)
@@ -224,7 +225,7 @@ def fib(n):
     elif n == 1:  # BASE CASE 2
         return 1
     else:
-        return fib(n - 1) + fib(n - 2)  # RECURSIVE STEP
+        return fib(n - 1) + fib(n - 2)  # RECURSIVE STEP SINCE fib CALLS ITSELF
 
 
 print("     Ex 2.1: The 5th number in the Fibonacci sequence is {}".format(fib(5)))

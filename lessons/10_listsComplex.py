@@ -354,8 +354,8 @@ Lets graph this relationship:
 '''
 def ex7():
     labels = ['10 elements', '20 elements', '30 elements', '40 elements', '50 elements']
-    bubble_sort_means = None
-    selection_sort_means = None
+    bubble_sort_mean_num_elements = None
+    selection_sort_mean_num_elements = None
 
     x = np.arange(len(labels))  # the label locations
     width = 0.35  # the width of the bars
