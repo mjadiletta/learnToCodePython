@@ -15,10 +15,8 @@ Learning Objectives:
 
 """
 
-from abc import ABC, abstractmethod, abstractproperty
 from solutions.CheckSolutions import CheckSolutions
 import datetime
-from solutions.graphics import *
 checkSolutions = CheckSolutions().classesComplexSolutions
 
 '''

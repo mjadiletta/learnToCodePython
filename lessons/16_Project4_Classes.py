@@ -54,80 +54,21 @@ class Colony:
         self.size = size
         self.gens = generations
         self.current_gen = seed
-        self.next_gen = seed
-
-    def print_gen(self, g=None):
-        if g is not None:
-            print("\nGeneration {}".format(g))
-        for i in self.current_gen:
-            line = ""
-            for j in i:
-                line += str(j) + " "
-            print(line)
-
-    def neighbors(self, x, y):
-        total = 0
-
-        # 1. top left
-        if x - 1 >= 0 and y - 1 >= 0:
-            if self.current_gen[x-1][y-1] == 1:
-                total += 1
-
-        # 2. top middle
-        if y - 1 >= 0:
-            if self.current_gen[x][y - 1] == 1:
-                total += 1
-
-        # 3. top right
-        if x + 1 < self.size and y - 1 >= 0:
-            if self.current_gen[x + 1][y - 1] == 1:
-                total += 1
-
-        # 4. middle left
-        if x - 1 >= 0:
-            if self.current_gen[x - 1][y] == 1:
-                total += 1
-
-        # 5. middle right
-        if x + 1 < self.size:
-            if self.current_gen[x + 1][y] == 1:
-                total += 1
-
-        # 6. bottom left
-        if x - 1 >= 0 and y + 1 < self.size:
-            if self.current_gen[x - 1][y + 1] == 1:
-                total += 1
-
-        # 7. bottom middle
-        if y + 1 < self.size:
-            if self.current_gen[x][y + 1] == 1:
-                total += 1
-
-        # 8. bottom right
-        if x + 1 < self.size and y + 1 < self.size:
-            if self.current_gen[x + 1][y + 1] == 1:
-                total += 1
-
-        return total
 
     def play(self):
         # this function runs through all the generations and returns the final gen
-        for g in range(self.gens):
-            self.print_gen(g)
-            self.current_gen = self.next_gen
-            for x, e1 in enumerate(self.current_gen):
-                for y, e2 in enumerate(e1):
-                    n = self.neighbors(x, y)
-                    if e2 == 1 and (n < 2 or n > 3):
-                        # alive
-                        self.next_gen[x][y] = 0
-                    elif e2 == 0 and n == 3:
-                        # dead
-                        self.next_gen[x][y] = 1
 
-        self.current_gen = self.next_gen
-        self.print_gen("Final")
-        return self.current_gen
+        return self.current_gen  # make sure to return the final generation of the colony in the same format as the seed
+
+
+'''
+Some HINTS:
+    1. write a nice print function that will print out the current generation for you 
+    2. figure out how you will store the current generation layout and the next generation layout 
+    3. remember the edge cases... most cells will have 8 neighbors but those on the edges of the matrix (colony) 
+        won't have as many
+    4. each of the rules can be conditional statements...
+'''
 
 
 checkSolutions["project4"](Colony)

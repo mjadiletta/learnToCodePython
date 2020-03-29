@@ -96,15 +96,8 @@ root = Node(50)
 root.add_child(25)
 root.add_child(75)
 
-# SOLUTION BEGIN - DELETE
-root.add_child(1)
-root.add_child(40)
-root.add_child(60)
-root.add_child(90)
-root.add_child(35)
-root.add_child(65)
-root.add_child(80)
-# SOLUTION END - DELETE
+# * write your solution here *
+
 checkSolutions["example1"](root)
 
 
@@ -278,10 +271,8 @@ Define the factorial function using recursion.
 
 
 def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+    # write your recursive function here
+    pass
 
 
 checkSolutions["example2.3"](factorial)
@@ -294,23 +285,10 @@ operation works for a BST, implement the BSTNode class below!
 
 class BSTNode:
     def __init__(self, value):
-        self.value = value
-        self.right_child = None
-        self.left_child = None
+        pass  # use the Node class to help you here
 
     def insert(self, value):
-        if value > self.value:
-            if self.right_child is None:
-                self.right_child = BSTNode(value)
-                return self.right_child
-            else:
-                return self.right_child.insert(value)
-        else:
-            if self.left_child is None:
-                self.left_child = BSTNode(value)
-                return self.left_child
-            else:
-                return self.left_child.insert(value)
+        pass  # write your insert algorithm here
 
 
 checkSolutions["example2"](BSTNode)
@@ -344,40 +322,13 @@ SEARCH(n)
 
 class BNode:
     def __init__(self, value):
-        # pass  # copy your code from the BSTNode class
-        self.value = value
-        self.right_child = None
-        self.left_child = None
+        pass  # copy your code from the BSTNode class
 
     def insert(self, value):
-        # pass  # copy your code from the BSTNode class
-        if value > self.value:
-            if self.right_child is None:
-                self.right_child = BNode(value)
-                return self.right_child
-            else:
-                return self.right_child.insert(value)
-        else:
-            if self.left_child is None:
-                self.left_child = BNode(value)
-                return self.left_child
-            else:
-                return self.left_child.insert(value)
+        pass  # copy your code from the BSTNode class
 
     def search(self, value):
-        # pass  # implement your search method here
-        if value == self.value:
-            return True
-        elif value > self.value:
-            if self.right_child is None:
-                return False
-            else:
-                return self.right_child.search(value)
-        else:
-            if self.left_child is None:
-                return False
-            else:
-                return self.left_child.search(value)
+        pass  # implement your search method here
 
 
 checkSolutions["example3"](BNode)
@@ -425,12 +376,12 @@ a.append([0 for x in range(72)])
 a.append([0 for x in range(87)])
 a.append([0 for x in range(99)])
 
-print("     List # | Big-O | List Length (N) | Iterations | Found?")
-print("     -------+-------+-----------------+------------+-------")
-for idx, el in enumerate(a):
-    found, iterations = simple_search(el, 1)
-    print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
-          .format(idx, "O(N)", len(el), iterations, str(found)))
+# print("     List # | Big-O | List Length (N) | Iterations | Found?")
+# print("     -------+-------+-----------------+------------+-------")
+# for idx, el in enumerate(a):
+#     found, iterations = simple_search(el, 1)
+#     print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
+#           .format(idx, "O(N)", len(el), iterations, str(found)))
 
 
 # Run the code and notice that the number of iterations is always equal to
@@ -509,12 +460,12 @@ b = list()
 for el in a:
     b.append((BST(el[0], el), len(el)))
 
-print("\n\n      BST # | Big-O | BST Size (N)    | Iterations | Found?")
-print("     -------+-------+-----------------+------------+-------")
-for idx, el in enumerate(b):
-    found, iterations = el[0].search(10000000000)
-    print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
-          .format(idx, "O(?)", el[1], iterations, str(found)))
+# print("\n\n      BST # | Big-O | BST Size (N)    | Iterations | Found?")
+# print("     -------+-------+-----------------+------------+-------")
+# for idx, el in enumerate(b):
+#     found, iterations = el[0].search(10000000000)
+#     print("     {: ^6} | {: ^5} | {: ^15} | {: ^10} | {: ^6}"
+#           .format(idx, "O(?)", el[1], iterations, str(found)))
 
 # Uncomment the code above and run it...
 # You should see that the number of iterations is consistently less than N
